@@ -91,25 +91,30 @@
 }
 
 .gauge {
-  position: relative;
   width: 100%;
   aspect-ratio: 2 / 1;
-  border-top-left-radius: 999px;
-  border-top-right-radius: 999px;
-  overflow: hidden;
+  display: block;
 }
 
-.gauge::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 68%;
-  height: 68%;
-  transform: translateX(-50%);
-  background: var(--surface-card);
-  border-top-left-radius: 999px;
-  border-top-right-radius: 999px;
+.gauge-track,
+.gauge-progress,
+.gauge-accent {
+  fill: none;
+  stroke-width: 18;
+  stroke-linecap: butt;
+}
+
+.gauge-track {
+  stroke: #e3e3e3;
+}
+
+.gauge-progress {
+  transition: stroke-dasharray 120ms linear;
+}
+
+.gauge-accent {
+  stroke: #d7e95a;
+  transition: stroke-dasharray 120ms linear;
 }
 
 .gauge-center {
@@ -165,7 +170,6 @@
 
 [data-slot="financial-health-card"] .header,
 [data-slot="financial-health-card"] .summary,
-[data-slot="financial-health-card"] .gauge-wrap,
 [data-slot="financial-health-card"] .note {
   opacity: 0;
   animation: var(--anim-dashboard-fade-up) 720ms var(--motion-ease-soft) both;
@@ -179,33 +183,12 @@
   animation-delay: calc(var(--enter-delay, 0ms) + 190ms);
 }
 
-[data-slot="financial-health-card"] .gauge-wrap {
-  animation-delay: calc(var(--enter-delay, 0ms) + 260ms);
-}
-
 [data-slot="financial-health-card"] .note {
   animation-delay: calc(var(--enter-delay, 0ms) + 390ms);
 }
 
 [data-slot="financial-health-card"] .gauge {
   transform-origin: center bottom;
-  animation: var(--anim-dashboard-reveal-rise) 820ms var(--motion-ease-soft) both;
-  animation-delay: calc(var(--enter-delay, 0ms) + 330ms);
-}
-
-[data-slot="financial-health-card"] .percent,
-[data-slot="financial-health-card"] .gauge-center {
-  opacity: 0;
-  animation: var(--anim-dashboard-soft-pop) 680ms var(--motion-ease-soft) both;
-}
-
-[data-slot="financial-health-card"] .percent {
-  animation-name: financial-health-percent-pop;
-  animation-delay: calc(var(--enter-delay, 0ms) + 430ms);
-}
-
-[data-slot="financial-health-card"] .gauge-center {
-  animation-delay: calc(var(--enter-delay, 0ms) + 470ms);
 }
 
 @media (width <= 700px) {

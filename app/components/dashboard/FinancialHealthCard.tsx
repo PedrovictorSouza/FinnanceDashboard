@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import type { DashboardHealthCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
 import { DisclosureCaret } from "../DisclosureCaret";
 import { useAnimatedNumber } from "./animatedMetrics";
@@ -11,14 +12,19 @@ type FinancialHealthCardProps = {
 };
 
 export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardProps) {
+  const gaugeGradientId = useId();
   const animatedPercent = useAnimatedNumber(copy.percent, {
-    delay: 330,
-    duration: 1_020,
+    delay: 120,
+    duration: 2_400,
   });
   const displayedPercent = Math.round(animatedPercent);
   const normalizedPercent = Math.min(100, Math.max(0, animatedPercent));
-  const healthGaugeDeg = normalizedPercent * 1.8;
-  const accentSplitDeg = Math.max(0, healthGaugeDeg * 0.45);
+  const gaugeRadius = 48;
+  const gaugeArcLength = Math.PI * gaugeRadius;
+  const gaugeFilledLength = (gaugeArcLength * normalizedPercent) / 100;
+  const gaugeAccentLength = gaugeFilledLength * 0.45;
+  const gaugeProgressDasharray = `${gaugeFilledLength} ${gaugeArcLength}`;
+  const gaugeAccentDasharray = `${gaugeAccentLength} ${gaugeArcLength}`;
 
   return (
     <section
@@ -67,18 +73,41 @@ export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardPr
           data-slot="financial-health-card-gauge-wrap"
           aria-label={copy.aria.gauge}
         >
-          <div
+          <svg
             className={styles.gauge}
             data-slot="financial-health-card-gauge"
-            style={{
-              background: `conic-gradient(
-                from 180deg at 50% 100%,
-                #d7e95a 0deg ${accentSplitDeg}deg,
-                #95cb4f ${accentSplitDeg}deg ${healthGaugeDeg}deg,
-                #e3e3e3 ${healthGaugeDeg}deg 180deg
-              )`,
-            }}
-          />
+            viewBox="0 0 120 72"
+            aria-hidden="true"
+          >
+            <path
+              className={styles["gauge-track"]}
+              data-slot="financial-health-card-gauge-track"
+              d="M12 60 A48 48 0 0 1 108 60"
+              pathLength={gaugeArcLength}
+            />
+            <path
+              className={styles["gauge-progress"]}
+              data-slot="financial-health-card-gauge-progress"
+              d="M12 60 A48 48 0 0 1 108 60"
+              pathLength={gaugeArcLength}
+              stroke={`url(#${gaugeGradientId})`}
+              strokeDasharray={gaugeProgressDasharray}
+            />
+            <path
+              className={styles["gauge-accent"]}
+              data-slot="financial-health-card-gauge-accent"
+              d="M12 60 A48 48 0 0 1 108 60"
+              pathLength={gaugeArcLength}
+              strokeDasharray={gaugeAccentDasharray}
+            />
+            <defs>
+              <linearGradient id={gaugeGradientId} x1="12" y1="60" x2="108" y2="60" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#d7e95a" />
+                <stop offset="45%" stopColor="#95cb4f" />
+                <stop offset="100%" stopColor="#95cb4f" />
+              </linearGradient>
+            </defs>
+          </svg>
           <h1 className={styles.percent} data-slot="financial-health-card-percent">
             {displayedPercent}%
           </h1>

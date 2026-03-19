@@ -98,8 +98,6 @@
 
 [data-slot="spending-limit-card"] .slider-fill {
   transform-origin: left center;
-  animation: var(--anim-dashboard-reveal-line) 820ms var(--motion-ease-soft) both;
-  animation-delay: calc(var(--enter-delay, 0ms) + 280ms);
 }
 
 @media (width <= 700px) {

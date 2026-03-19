@@ -30,12 +30,7 @@ export function useAnimatedNumber(target: number, options: AnimationOptions = {}
 
   useEffect(() => {
     if (typeof window === "undefined") {
-      setValue(target);
-      return;
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setValue(target);
+      setValue(0);
       return;
     }
 
