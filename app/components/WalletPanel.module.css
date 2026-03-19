@@ -105,20 +105,32 @@
   height: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
   padding: 6px;
+  overflow: hidden;
   background: linear-gradient(135deg, #cfcfcf 0%, #bebebe 100%);
   border-radius: var(--radius-sm);
 }
 
 .wallet-slide p {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-size: var(--fs-p);
   font-weight: 700;
   background: rgb(255 255 255 / 80%);
   padding: 2px 6px;
+}
+
+.wallet-slide-art {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wallet-shortcuts {

@@ -8,6 +8,21 @@ type WalletPanelProps = {
   copy: DashboardWalletPanelViewModel;
 };
 
+const walletSlideMediaByLabel: Record<
+  string,
+  { image: string; opacity?: number }
+> = {
+  Pessoal: {
+    image: "/images/cards-container/credit-card-yellow.png",
+  },
+  Empresa: {
+    image: "/images/cards-container/card-black-white.png",
+    opacity: 0.5,
+  },
+};
+
+const supportedWalletSlides = new Set(Object.keys(walletSlideMediaByLabel));
+
 export function WalletPanel({ copy }: WalletPanelProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({
@@ -80,9 +95,24 @@ export function WalletPanel({ copy }: WalletPanelProps) {
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
         >
-          {copy.slides.map((slide) => (
-            <section key={slide} className={styles["wallet-slide"]} data-slot="wallet-slide">
+          {copy.slides.filter((slide) => supportedWalletSlides.has(slide)).map((slide) => (
+            <section
+              key={slide}
+              className={styles["wallet-slide"]}
+              data-slot="wallet-slide"
+            >
               <p data-slot="wallet-slide-label">{slide}</p>
+              {walletSlideMediaByLabel[slide] ? (
+                <span
+                  className={styles["wallet-slide-art"]}
+                  data-slot="wallet-slide-art"
+                  aria-hidden="true"
+                  style={{
+                    backgroundImage: `url(${walletSlideMediaByLabel[slide].image})`,
+                    opacity: walletSlideMediaByLabel[slide].opacity ?? 1,
+                  }}
+                />
+              ) : null}
             </section>
           ))}
         </div>
