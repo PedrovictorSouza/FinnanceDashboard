@@ -102,9 +102,9 @@ export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardPr
             />
             <defs>
               <linearGradient id={gaugeGradientId} x1="12" y1="60" x2="108" y2="60" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#d7e95a" />
-                <stop offset="45%" stopColor="#95cb4f" />
-                <stop offset="100%" stopColor="#95cb4f" />
+                <stop offset="0%" stopColor="#f3a712" />
+                <stop offset="45%" stopColor="#d78f11" />
+                <stop offset="100%" stopColor="#29335c" />
               </linearGradient>
             </defs>
           </svg>

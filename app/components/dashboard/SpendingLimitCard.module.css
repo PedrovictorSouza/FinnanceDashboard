@@ -45,7 +45,7 @@
 .icon {
   width: 10px;
   height: 10px;
-  background: #dadada;
+  background: var(--accent-primary);
 }
 
 .slider-wrap {
@@ -61,7 +61,7 @@
 .slider-track {
   position: relative;
   height: 18px;
-  background: #f4f4f4;
+  background: rgb(83 77 65 / 14%);
 }
 
 .slider-fill {
@@ -69,7 +69,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  background: linear-gradient(90deg, #99d2fa 0%, #75c3f7 100%);
+  background: linear-gradient(90deg, #f3a712 0%, #29335c 100%);
 }
 
 .slider-scale {

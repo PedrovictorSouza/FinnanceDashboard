@@ -43,13 +43,14 @@ const baseSeries = [
 
 const margin = { top: 6, right: 8, bottom: 40, left: 34 };
 const amountScaleFactor = 40;
-const barCornerRadius = 7;
+const barCornerRadius = 3;
+const stackGap = 5;
 
 const colors = {
-  savings: "#E5EA42",
-  income: "#9BD95A",
-  expenses: "#F3B56C",
-  axis: "#333333",
+  savings: "#F3A712",
+  income: "#29335C",
+  expenses: "#534D41",
+  axis: "#534D41",
 };
 
 const yTickFormat = format("~d");
@@ -148,14 +149,17 @@ export function BalanceChartCanvas({
             const positiveTopY = yScale(positiveTotal);
             const incomeTopY = yScale(incomeValue);
             const expensesBottomY = yScale(-expensesValue);
-            const positiveHeight = Math.max(0, zeroY - positiveTopY);
-            const expensesHeight = Math.max(0, expensesBottomY - zeroY);
             const hasSavings = savingsValue > 0;
             const hasIncome = incomeValue > 0;
             const hasExpenses = expensesValue > 0;
             const hasPositiveStack = positiveTotal > 0;
+            const sharedGapOffset = hasPositiveStack && hasExpenses ? stackGap / 2 : 0;
+            const positiveBottomY = zeroY - sharedGapOffset;
+            const expensesTopY = zeroY + sharedGapOffset;
+            const positiveHeight = Math.max(0, positiveBottomY - positiveTopY);
+            const expensesHeight = Math.max(0, expensesBottomY - expensesTopY);
             const savingsHeight = Math.max(0, incomeTopY - positiveTopY);
-            const incomeHeight = Math.max(0, zeroY - incomeTopY);
+            const incomeHeight = Math.max(0, positiveBottomY - incomeTopY);
 
             return (
               <g
@@ -187,7 +191,7 @@ export function BalanceChartCanvas({
                   <rect
                     className={styles["chart-bar-ghost"]}
                     x={x}
-                    y={zeroY}
+                    y={expensesTopY}
                     width={barWidth}
                     height={expensesHeight}
                     rx={barCornerRadius}
@@ -236,7 +240,7 @@ export function BalanceChartCanvas({
                   <rect
                     className={styles["chart-bar-expenses"]}
                     x={x}
-                    y={zeroY}
+                    y={expensesTopY}
                     width={barWidth}
                     height={expensesHeight}
                     rx={barCornerRadius}

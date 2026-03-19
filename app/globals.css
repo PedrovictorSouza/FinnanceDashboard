@@ -1,21 +1,28 @@
 :root {
   --sidebar-w: clamp(180px, 18vw, 236px);
   --gap: 10px;
-  --focus-ring-color: #0b57d0;
+  --focus-ring-color: #f3a712;
   --focus-ring: 3px solid var(--focus-ring-color);
   --focus-offset: 2px;
+  --color-twilight-indigo: #29335c;
+  --color-orange: #f3a712;
+  --color-stone-brown: #534d41;
+  --color-platinum: #f4f4f6;
   --color-white: #fff;
-  --color-gray-light: #f1f1f1;
-  --bg-page: var(--color-gray-light);
-  --bg-page-alt: var(--color-gray-light);
-  --bg-panel: var(--color-gray-light);
-  --bg-muted: var(--color-gray-light);
-  --surface-card: var(--color-white);
-  --surface-control: var(--color-white);
-  --surface-control-alt: var(--color-white);
-  --surface-control-soft: var(--color-white);
-  --surface-inverse: var(--color-white);
-  --surface-line: var(--color-gray-light);
+  --color-gray-light: var(--color-platinum);
+  --bg-page: var(--color-platinum);
+  --bg-page-alt: linear-gradient(180deg, rgb(41 51 92 / 6%) 0%, rgb(244 244 246 / 94%) 22%, rgb(244 244 246 / 100%) 100%);
+  --bg-panel: rgb(41 51 92 / 4%);
+  --bg-muted: rgb(83 77 65 / 8%);
+  --surface-card: var(--color-platinum);
+  --surface-control: rgb(41 51 92 / 8%);
+  --surface-control-alt: rgb(41 51 92 / 12%);
+  --surface-control-soft: rgb(41 51 92 / 8%);
+  --surface-inverse: var(--color-twilight-indigo);
+  --surface-line: rgb(83 77 65 / 18%);
+  --accent-primary: var(--color-orange);
+  --accent-primary-soft: rgb(243 167 18 / 16%);
+  --accent-secondary: var(--color-twilight-indigo);
   --wallet-carousel-nav-w: 24px;
   --wallet-carousel-preview-w: 72px;
   --dashboard-card-padding: 10px;
@@ -28,10 +35,10 @@
   --fs-h3: 0.9375rem;
   --fs-p: 0.8125rem;
   --fs-small: 0.75rem;
-  --text-primary: #111;
-  --text-inverse: #fff;
-  --text-secondary: #2f2f2f;
-  --text-muted: #3c3c3c;
+  --text-primary: var(--color-stone-brown);
+  --text-inverse: var(--color-platinum);
+  --text-secondary: rgb(83 77 65 / 88%);
+  --text-muted: rgb(83 77 65 / 70%);
   --motion-duration-shell: 620ms;
   --motion-duration-enter: 760ms;
   --motion-duration-soft: 880ms;
@@ -63,7 +70,7 @@ body {
 body {
   margin: 0;
   background: var(--bg-page);
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: var(--fs-p);
   line-height: 1.45;
   color: var(--text-primary);
@@ -72,14 +79,17 @@ body {
 }
 
 h1 {
+  font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: var(--fs-h1);
 }
 
 h2 {
+  font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: var(--fs-h2);
 }
 
 h3 {
+  font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: var(--fs-h3);
 }
 
@@ -153,6 +163,21 @@ fieldset {
 
 .dashboard-slot > * {
   min-height: 0;
+  transition:
+    transform 180ms var(--motion-ease-soft),
+    box-shadow 220ms var(--motion-ease-soft),
+    border-color 220ms var(--motion-ease-soft),
+    background-color 220ms var(--motion-ease-soft);
+  border: 1px solid rgb(83 77 65 / 8%);
+  box-shadow: 0 12px 24px rgb(41 51 92 / 5%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dashboard-slot > *:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgb(41 51 92 / 12%);
+    border-color: rgb(243 167 18 / 28%);
+  }
 }
 
 .dashboard-top-slot {
@@ -195,8 +220,8 @@ fieldset {
   position: absolute;
   left: 12px;
   top: -40px;
-  background: var(--text-primary);
-  color: var(--text-inverse);
+  background: var(--accent-primary);
+  color: var(--color-twilight-indigo);
   padding: 8px 12px;
   text-decoration: none;
   z-index: 20;
@@ -218,7 +243,7 @@ fieldset {
 }
 
 .upload-area {
-  background-color: #ff9ecf !important;
+  background-color: rgb(243 167 18 / 16%) !important;
   background-image: none !important;
 }
 

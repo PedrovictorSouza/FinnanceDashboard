@@ -129,7 +129,7 @@
 }
 
 .chart-grid-line {
-  stroke: var(--chart-grid, #cbcbcb);
+  stroke: rgb(83 77 65 / 18%);
   stroke-width: 1;
 }
 
@@ -138,19 +138,19 @@
 }
 
 .chart-bar-ghost {
-  fill: #dcdcdc;
+  fill: rgb(83 77 65 / 12%);
 }
 
 .chart-bar-savings {
-  fill: #e5ea42;
+  fill: #f3a712;
 }
 
 .chart-bar-income {
-  fill: #9bd95a;
+  fill: #29335c;
 }
 
 .chart-bar-expenses {
-  fill: #f3b56c;
+  fill: #534d41;
 }
 
 .dot {
@@ -162,15 +162,15 @@
 }
 
 .savings {
-  background: #e5ea42;
+  background: #f3a712;
 }
 
 .income {
-  background: #9bd95a;
+  background: #29335c;
 }
 
 .expenses {
-  background: #f3b56c;
+  background: #534d41;
 }
 
 .chart-tooltip {

@@ -70,14 +70,14 @@
   align-items: center;
   gap: 4px;
   font-size: var(--fs-small);
-  color: #4d7d1d;
+  color: var(--accent-primary);
   line-height: 1.1;
 }
 
 .growth-icon {
   width: 9px;
   height: 9px;
-  background: #81b64d;
+  background: var(--accent-primary);
   clip-path: polygon(0 100%, 100% 0, 100% 42%, 42% 42%, 42% 100%);
   transform: rotate(0deg);
   border-radius: 1px;
@@ -105,7 +105,7 @@
 }
 
 .gauge-track {
-  stroke: #e3e3e3;
+  stroke: rgb(83 77 65 / 18%);
 }
 
 .gauge-progress {
@@ -113,7 +113,7 @@
 }
 
 .gauge-accent {
-  stroke: #d7e95a;
+  stroke: var(--accent-primary);
   transition: stroke-dasharray 120ms linear;
 }
 

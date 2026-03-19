@@ -3,7 +3,7 @@
   top: var(--gap);
   height: calc(100dvh - (var(--gap) * 2));
   min-height: 0;
-  background: var(--surface-card);
+  background: var(--color-twilight-indigo);
   padding: 14px 12px 20px;
   border-radius: var(--radius-sm);
   display: flex;
@@ -15,9 +15,8 @@
 .sidebar-nav {
   min-height: 0;
   flex: 1 1 auto;
-  overflow: auto;
+  overflow: hidden;
   padding-right: 2px;
-  scrollbar-gutter: stable;
 }
 
 .sidebar-menu {
@@ -37,11 +36,30 @@
   padding: 6px 8px;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  color: var(--text-primary);
-  background: var(--surface-control);
+  color: var(--text-inverse);
+  background: rgb(244 244 246 / 8%);
   font-size: var(--fs-h3);
   font-weight: 600;
   line-height: 1.15;
+  transition:
+    color 180ms var(--motion-ease-soft),
+    background-color 180ms var(--motion-ease-soft),
+    transform 180ms var(--motion-ease-soft),
+    box-shadow 220ms var(--motion-ease-soft);
+}
+
+.sidebar-item-active,
+.sidebar-item[aria-current="page"],
+.sidebar-summary-active {
+  color: var(--color-twilight-indigo);
+  background: var(--accent-primary);
+}
+
+.sidebar-item-active .menu-icon,
+.sidebar-item[aria-current="page"] .menu-icon,
+.sidebar-summary-active .menu-icon {
+  color: #fff;
+  filter: brightness(0) invert(1);
 }
 
 .sidebar-accordion {
@@ -83,19 +101,51 @@
   padding: 5px 8px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   min-width: 0;
+  width: 100%;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  color: var(--text-primary);
-  background: #f7f7f7;
+  color: rgb(244 244 246 / 82%);
+  background: transparent;
   font-size: var(--fs-p);
   font-weight: 600;
   line-height: 1.15;
+  transition:
+    color 180ms var(--motion-ease-soft),
+    background-color 180ms var(--motion-ease-soft),
+    transform 180ms var(--motion-ease-soft),
+    box-shadow 220ms var(--motion-ease-soft);
+}
+
+.sidebar-subitem span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-subitem strong {
+  margin-left: auto;
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.sidebar-subitem-active,
+.sidebar-subitem[aria-current="page"] {
+  color: var(--color-twilight-indigo);
+  background: var(--accent-primary);
+}
+
+.sidebar-subitem-active .menu-icon,
+.sidebar-subitem[aria-current="page"] .menu-icon {
+  color: #fff;
+  filter: brightness(0) invert(1);
 }
 
 .menu-icon {
-  color: var(--text-primary);
+  color: var(--text-inverse);
 }
 
 .sidebar-item span:last-child,
@@ -110,7 +160,7 @@
 
 .upgrade-card {
   margin-top: auto;
-  background: var(--surface-control);
+  background: rgb(244 244 246 / 8%);
   padding: 10px;
   border-radius: var(--radius-sm);
   display: grid;
@@ -134,14 +184,28 @@
 }
 
 .upgrade-btn {
-  background: var(--surface-inverse);
-  color: var(--text-primary);
+  background: var(--accent-primary);
+  color: var(--color-twilight-indigo);
   font-size: var(--fs-p);
   font-weight: 700;
   line-height: 1.1;
   padding: 7px 8px;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sidebar-item:hover,
+  .sidebar-summary:hover,
+  .sidebar-subitem:hover {
+    transform: translateX(2px);
+    box-shadow: 0 8px 18px rgb(0 0 0 / 18%);
+  }
+
+  .upgrade-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgb(0 0 0 / 18%);
+  }
 }
 
 [data-slot="dashboard-sidebar"] .sidebar-menu > li,
