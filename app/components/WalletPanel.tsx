@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, type PointerEvent } from "react";
-import type { DashboardDictionary } from "../lib/i18n";
+import type { DashboardWalletPanelViewModel } from "../modules/dashboard/domain/dashboard.types";
 import styles from "./WalletPanel.module.css";
 
 type WalletPanelProps = {
-  copy: DashboardDictionary["walletPanel"];
+  copy: DashboardWalletPanelViewModel;
 };
 
 export function WalletPanel({ copy }: WalletPanelProps) {
@@ -43,24 +43,27 @@ export function WalletPanel({ copy }: WalletPanelProps) {
   };
 
   return (
-    <article className={styles["wallet-panel"]} data-slot="wallet-panel">
+    <article className={`motion-enter-soft ${styles["wallet-panel"]}`} data-slot="wallet-panel">
       <header className={styles["wallet-header"]} data-slot="wallet-header">
         <div className={styles["wallet-heading"]} data-slot="wallet-heading">
-          <h2 className={styles["wallet-title"]} data-slot="wallet-title">
-            {copy.title}
-          </h2>
-          <p className={styles["wallet-subtitle"]} data-slot="wallet-subtitle">
-            {copy.subtitle}
-          </p>
+          <div className={styles["wallet-heading-copy"]} data-slot="wallet-heading-copy">
+            <h2 className={styles["wallet-title"]} data-slot="wallet-title">
+              {copy.title}
+            </h2>
+            <p className={styles["wallet-subtitle"]} data-slot="wallet-subtitle">
+              {copy.subtitle}
+            </p>
+          </div>
+          <button
+            type="button"
+            className={styles["wallet-add-btn"]}
+            data-slot="wallet-add-button"
+            aria-label={copy.aria.addCard}
+          >
+            <span className={styles["wallet-add-btn-full"]}>{copy.addCard}</span>
+            <span className={styles["wallet-add-btn-short"]}>Add cartão</span>
+          </button>
         </div>
-        <button
-          type="button"
-          className={styles["wallet-add-btn"]}
-          data-slot="wallet-add-button"
-          aria-label={copy.aria.addCard}
-        >
-          {copy.addCard}
-        </button>
       </header>
 
       <section

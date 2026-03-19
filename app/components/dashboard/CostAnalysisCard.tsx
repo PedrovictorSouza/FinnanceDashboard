@@ -1,8 +1,10 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+import type { DashboardCostCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
+import type { CSSProperties } from "react";
+import { DisclosureCaret } from "../DisclosureCaret";
 import styles from "./CostAnalysisCard.module.css";
 
 type CostAnalysisCardProps = {
-  copy: DashboardDictionary["costCard"];
+  copy: DashboardCostCardViewModel;
   componentId: string;
 };
 
@@ -14,7 +16,7 @@ export function CostAnalysisCard({ copy, componentId }: CostAnalysisCardProps) {
       data-component={componentId}
       data-slot="dashboard-cost-slot"
     >
-      <article className={styles.card} data-slot="cost-analysis-card">
+      <article className={`motion-enter ${styles.card}`} data-slot="cost-analysis-card">
         <header className={styles.header} data-slot="cost-analysis-card-header">
           <div data-slot="cost-analysis-card-heading">
             <h2 className={styles.title} data-slot="cost-analysis-card-title">
@@ -32,9 +34,11 @@ export function CostAnalysisCard({ copy, componentId }: CostAnalysisCardProps) {
             aria-label={copy.aria.period}
           >
             <span>{copy.period}</span>
-            <span className={styles.caret} data-slot="cost-analysis-card-caret" aria-hidden="true">
-              v
-            </span>
+            <DisclosureCaret
+              className={styles.caret}
+              data-slot="cost-analysis-card-caret"
+              aria-hidden="true"
+            />
           </button>
         </header>
 
@@ -48,7 +52,7 @@ export function CostAnalysisCard({ copy, componentId }: CostAnalysisCardProps) {
               key={`${segment}-${index}`}
               className={styles.segment}
               data-slot="cost-analysis-card-segment"
-              style={{ flexGrow: segment }}
+              style={{ flexGrow: segment, "--segment-index": `${index}` } as CSSProperties}
             />
           ))}
         </div>

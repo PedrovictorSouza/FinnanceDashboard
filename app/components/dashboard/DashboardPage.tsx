@@ -1,5 +1,5 @@
 import { WalletPanel } from "../WalletPanel";
-import { languageLocales, languages, type DashboardDictionary, type LanguageCode } from "../../lib/i18n";
+import type { DashboardPageViewModel } from "../../modules/dashboard/domain/dashboard.types";
 import { CostAnalysisCard } from "./CostAnalysisCard";
 import { DashboardPrimaryGroup } from "./DashboardPrimaryGroup";
 import { DashboardSidebar } from "./DashboardSidebar";
@@ -11,80 +11,89 @@ import { TransactionsCard } from "./TransactionsCard";
 import { VariableExpensesCard } from "./VariableExpensesCard";
 
 type DashboardPageProps = {
-  language: LanguageCode;
-  copy: DashboardDictionary;
+  viewModel: DashboardPageViewModel;
 };
 
-function getLanguageHref(language: LanguageCode) {
-  return language === "PT" ? "/" : `/?lang=${language}`;
-}
-
-export function DashboardPage({ language, copy }: DashboardPageProps) {
-  const languageOptions = languages.map((code) => ({
-    code,
-    href: getLanguageHref(code),
-    label: copy.languageButtons[code],
-    isCurrent: code === language,
-  }));
+export function DashboardPage({ viewModel }: DashboardPageProps) {
+  const {
+    locale,
+    skipLink,
+    sidebar,
+    sidebarAria,
+    components,
+    search,
+    topBar,
+    languageAriaLabel,
+    languageOptions,
+    chart,
+    verticalCard,
+    walletPanel,
+    spendingCard,
+    variableCard,
+    costCard,
+    healthCard,
+    goalCard,
+    transactionCard,
+  } = viewModel;
 
   return (
     <>
       <a className="skip-link" data-slot="dashboard-skip-link" href="#conteudo-principal">
-        {copy.skipLink}
+        {skipLink}
       </a>
 
-      <div className="layout-shell" data-slot="dashboard-layout-shell" lang={languageLocales[language]}>
+      <div className="layout-shell" data-slot="dashboard-layout-shell" lang={locale}>
         <DashboardSidebar
-          copy={copy.sidebar}
-          aria={{ sidebar: copy.aria.sidebar, mainNav: copy.aria.mainNav }}
-          componentId={copy.components.sidebar}
+          copy={sidebar}
+          aria={sidebarAria}
+          componentId={components.sidebar}
         />
 
         <main id="conteudo-principal" className="layout-content" data-slot="dashboard-layout-content">
           <DashboardTopBar
-            componentId={copy.components.top}
-            search={copy.search}
-            topBar={copy.topBar}
-            languageAriaLabel={copy.aria.language}
+            componentId={components.top}
+            search={search}
+            topBar={topBar}
+            languageAriaLabel={languageAriaLabel}
             languageOptions={languageOptions}
           />
 
           <DashboardPrimaryGroup
-            componentId={copy.components.cardPrimaryGroup}
-            chartComponentId={copy.components.cardPrimary}
-            verticalComponentId={copy.components.cardVertical}
-            chartCopy={copy.chart}
-            verticalCopy={copy.verticalCard}
-            language={language}
+            componentId={components.cardPrimaryGroup}
+            chartComponentId={components.cardPrimary}
+            verticalComponentId={components.cardVertical}
+            chartCopy={chart}
+            verticalCopy={verticalCard}
+            locale={locale}
           />
 
           <section
             className="dashboard-slot dashboard-wallet-slot"
-            data-component={copy.components.cardRightTop}
+            data-component={components.cardRightTop}
             data-slot="dashboard-wallet-slot"
           >
-            <WalletPanel copy={copy.walletPanel} />
+            <WalletPanel copy={walletPanel} />
           </section>
 
           <SpendingLimitCard
-            componentId={copy.components.cardMediumLeft}
-            copy={copy.spendingCard}
+            componentId={components.cardMediumLeft}
+            copy={spendingCard}
           />
 
           <VariableExpensesCard
-            componentId={copy.components.cardMediumRight}
-            copy={copy.variableCard}
+            componentId={components.cardMediumRight}
+            copy={variableCard}
           />
 
-          <CostAnalysisCard componentId={copy.components.cardLarge1} copy={copy.costCard} />
+          <CostAnalysisCard componentId={components.cardLarge1} copy={costCard} />
 
-          <FinancialHealthCard componentId={copy.components.cardLarge2} copy={copy.healthCard} />
+          <FinancialHealthCard componentId={components.cardLarge2} copy={healthCard} />
 
-          <GoalTrackerCard componentId={copy.components.cardLarge3} copy={copy.goalCard} />
+          <GoalTrackerCard componentId={components.cardLarge3} copy={goalCard} />
 
           <TransactionsCard
-            componentId={copy.components.cardRightBottom}
-            copy={copy.transactionCard}
+            componentId={components.cardRightBottom}
+            copy={transactionCard}
           />
         </main>
       </div>

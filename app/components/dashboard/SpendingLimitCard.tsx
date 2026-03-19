@@ -1,12 +1,30 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+"use client";
+
+import type { DashboardSpendingCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
+import { formatNumberFromTemplate, parseFormattedNumber, useAnimatedNumber } from "./animatedMetrics";
 import styles from "./SpendingLimitCard.module.css";
 
 type SpendingLimitCardProps = {
-  copy: DashboardDictionary["spendingCard"];
+  copy: DashboardSpendingCardViewModel;
   componentId: string;
 };
 
 export function SpendingLimitCard({ copy, componentId }: SpendingLimitCardProps) {
+  const minValue = parseFormattedNumber(copy.minLabel);
+  const maxValue = parseFormattedNumber(copy.maxLabel);
+  const targetMinValue =
+    minValue?.value ?? (maxValue ? maxValue.value * (copy.progress / 100) : copy.progress);
+  const animatedMinValue = useAnimatedNumber(targetMinValue, {
+    delay: 280,
+    duration: 980,
+  });
+  const animatedFillPercent =
+    maxValue && maxValue.value > 0
+      ? Math.min(100, Math.max(0, (animatedMinValue / maxValue.value) * 100))
+      : copy.progress;
+  const animatedMinLabel =
+    minValue ? formatNumberFromTemplate(animatedMinValue, minValue.template) : copy.minLabel;
+
   return (
     <section
       id="despesas"
@@ -14,7 +32,7 @@ export function SpendingLimitCard({ copy, componentId }: SpendingLimitCardProps)
       data-component={componentId}
       data-slot="dashboard-spending-slot"
     >
-      <article className={styles.card} data-slot="spending-limit-card">
+      <article className={`motion-enter ${styles.card}`} data-slot="spending-limit-card">
         <header className={styles.header} data-slot="spending-limit-card-header">
           <div className={styles.heading} data-slot="spending-limit-card-heading">
             <h2 className={styles.title} data-slot="spending-limit-card-title">
@@ -37,11 +55,11 @@ export function SpendingLimitCard({ copy, componentId }: SpendingLimitCardProps)
             <div
               className={styles["slider-fill"]}
               data-slot="spending-limit-card-slider-fill"
-              style={{ width: `${copy.progress}%` }}
+              style={{ width: `${animatedFillPercent}%` }}
             />
           </div>
           <div className={styles["slider-scale"]} data-slot="spending-limit-card-slider-scale">
-            <span>{copy.minLabel}</span>
+            <span>{animatedMinLabel}</span>
             <span>{copy.maxLabel}</span>
           </div>
         </div>

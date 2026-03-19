@@ -1,0 +1,28 @@
+.frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--bg-muted);
+}
+
+.main {
+  width: 12px;
+}
+
+.sub {
+  width: 10px;
+}
+
+.frame img,
+.frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex: 0 0 auto;
+  border-radius: inherit;
+  object-fit: contain;
+}

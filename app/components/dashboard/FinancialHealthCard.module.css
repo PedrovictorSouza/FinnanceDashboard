@@ -27,7 +27,7 @@
   margin: 2px 0 0;
   font-size: var(--fs-small);
   color: var(--text-muted);
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .period-btn {
@@ -46,7 +46,10 @@
 }
 
 .caret {
-  font-size: var(--fs-small);
+  width: 10px;
+  height: 6px;
+  flex: 0 0 auto;
+  display: block;
 }
 
 .summary {
@@ -126,6 +129,26 @@
   transform: translate(-50%, -50%);
 }
 
+@keyframes financial-health-percent-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 12px)) scale(0.972);
+    filter: blur(10px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, calc(-50% - 2px)) scale(1.004);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0);
+  }
+}
+
 .percent-label {
   margin: 2px 0 0;
   font-size: var(--fs-small);
@@ -138,6 +161,51 @@
   font-size: var(--fs-small);
   color: var(--text-secondary);
   line-height: 1.15;
+}
+
+[data-slot="financial-health-card"] .header,
+[data-slot="financial-health-card"] .summary,
+[data-slot="financial-health-card"] .gauge-wrap,
+[data-slot="financial-health-card"] .note {
+  opacity: 0;
+  animation: var(--anim-dashboard-fade-up) 720ms var(--motion-ease-soft) both;
+}
+
+[data-slot="financial-health-card"] .header {
+  animation-delay: calc(var(--enter-delay, 0ms) + 120ms);
+}
+
+[data-slot="financial-health-card"] .summary {
+  animation-delay: calc(var(--enter-delay, 0ms) + 190ms);
+}
+
+[data-slot="financial-health-card"] .gauge-wrap {
+  animation-delay: calc(var(--enter-delay, 0ms) + 260ms);
+}
+
+[data-slot="financial-health-card"] .note {
+  animation-delay: calc(var(--enter-delay, 0ms) + 390ms);
+}
+
+[data-slot="financial-health-card"] .gauge {
+  transform-origin: center bottom;
+  animation: var(--anim-dashboard-reveal-rise) 820ms var(--motion-ease-soft) both;
+  animation-delay: calc(var(--enter-delay, 0ms) + 330ms);
+}
+
+[data-slot="financial-health-card"] .percent,
+[data-slot="financial-health-card"] .gauge-center {
+  opacity: 0;
+  animation: var(--anim-dashboard-soft-pop) 680ms var(--motion-ease-soft) both;
+}
+
+[data-slot="financial-health-card"] .percent {
+  animation-name: financial-health-percent-pop;
+  animation-delay: calc(var(--enter-delay, 0ms) + 430ms);
+}
+
+[data-slot="financial-health-card"] .gauge-center {
+  animation-delay: calc(var(--enter-delay, 0ms) + 470ms);
 }
 
 @media (width <= 700px) {

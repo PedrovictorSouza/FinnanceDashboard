@@ -1,8 +1,8 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+import type { DashboardVariableCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
 import styles from "./VariableExpensesCard.module.css";
 
 type VariableExpensesCardProps = {
-  copy: DashboardDictionary["variableCard"];
+  copy: DashboardVariableCardViewModel;
   componentId: string;
 };
 
@@ -13,18 +13,25 @@ export function VariableExpensesCard({ copy, componentId }: VariableExpensesCard
       data-component={componentId}
       data-slot="dashboard-variable-slot"
     >
-      <article className={styles.card} data-slot="variable-expenses-card">
-        <h2 className={styles.title} data-slot="variable-expenses-card-title">
-          {copy.title}
-        </h2>
-        <button
-          type="button"
-          className={styles.button}
-          data-slot="variable-expenses-card-button"
-          aria-label={copy.aria.readMore}
+      <article className={`motion-enter ${styles.card}`} data-slot="variable-expenses-card">
+        <div className={styles.heading} data-slot="variable-expenses-card-heading">
+          <h2 className={styles.title} data-slot="variable-expenses-card-title">
+            {copy.title}
+          </h2>
+        </div>
+
+        <div
+          className={styles.summary}
+          data-slot="variable-expenses-card-summary"
+          aria-label={copy.aria.summary}
         >
-          {copy.cta}
-        </button>
+          <strong className={styles["summary-value"]} data-slot="variable-expenses-card-summary-value">
+            {copy.totalValue}
+          </strong>
+          <span className={styles["summary-change"]} data-slot="variable-expenses-card-summary-change">
+            {copy.totalLabel} · {copy.delta}
+          </span>
+        </div>
       </article>
     </section>
   );

@@ -172,9 +172,33 @@
   "variableCard": {
     "title": "Variable expenses",
     "subtitle": "Track adjustments and seasonal costs.",
-    "cta": "Read more",
+    "totalLabel": "Total this period",
+    "totalValue": "$2,480",
+    "delta": "+8.4% from last month",
+    "items": [
+      {
+        "label": "Dining out",
+        "amount": "$860",
+        "share": "35%",
+        "color": "#d89b48"
+      },
+      {
+        "label": "Mobility",
+        "amount": "$690",
+        "share": "28%",
+        "color": "#b7ca54"
+      },
+      {
+        "label": "Leisure",
+        "amount": "$420",
+        "share": "17%",
+        "color": "#8fc35d"
+      }
+    ],
+    "note": "Biggest pressure came from dining out and ride-hailing over the last few weeks.",
     "aria": {
-      "readMore": "Read more about variable expenses"
+      "summary": "Variable expenses summary",
+      "list": "Top variable expense categories"
     }
   },
   "healthCard": {

@@ -172,9 +172,33 @@
   "variableCard": {
     "title": "Variable Ausgaben",
     "subtitle": "Verfolge Anpassungen und saisonale Kosten.",
-    "cta": "Read more",
+    "totalLabel": "Gesamt im Zeitraum",
+    "totalValue": "$2.480",
+    "delta": "+8.4% zum Vormonat",
+    "items": [
+      {
+        "label": "Ausser Haus essen",
+        "amount": "$860",
+        "share": "35%",
+        "color": "#d89b48"
+      },
+      {
+        "label": "Mobilitaet",
+        "amount": "$690",
+        "share": "28%",
+        "color": "#b7ca54"
+      },
+      {
+        "label": "Freizeit",
+        "amount": "$420",
+        "share": "17%",
+        "color": "#8fc35d"
+      }
+    ],
+    "note": "Der groesste Druck kam in den letzten Wochen durch Ausgaben fuer Essen und Fahrdienste.",
     "aria": {
-      "readMore": "Mehr zu variablen Ausgaben lesen"
+      "summary": "Zusammenfassung der variablen Ausgaben",
+      "list": "Wichtigste Kategorien der variablen Ausgaben"
     }
   },
   "healthCard": {

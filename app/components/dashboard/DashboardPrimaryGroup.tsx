@@ -1,5 +1,8 @@
-import { BalanceChart } from "../BalanceChart";
-import type { DashboardDictionary, LanguageCode } from "../../lib/i18n";
+import { BalanceChart } from "../../modules/balance-chart/presentation/BalanceChart";
+import type {
+  DashboardChartViewModel,
+  DashboardVerticalCardViewModel,
+} from "../../modules/dashboard/domain/dashboard.types";
 import styles from "./DashboardPrimaryGroup.module.css";
 import { VerticalKpiPanel } from "./VerticalKpiPanel";
 
@@ -7,9 +10,9 @@ type DashboardPrimaryGroupProps = {
   componentId: string;
   chartComponentId: string;
   verticalComponentId: string;
-  chartCopy: DashboardDictionary["chart"];
-  verticalCopy: DashboardDictionary["verticalCard"];
-  language: LanguageCode;
+  chartCopy: DashboardChartViewModel;
+  verticalCopy: DashboardVerticalCardViewModel;
+  locale: string;
 };
 
 export function DashboardPrimaryGroup({
@@ -18,11 +21,11 @@ export function DashboardPrimaryGroup({
   verticalComponentId,
   chartCopy,
   verticalCopy,
-  language,
+  locale,
 }: DashboardPrimaryGroupProps) {
   return (
     <section
-      className={`dashboard-slot dashboard-primary-group-slot ${styles.group}`}
+      className={`dashboard-slot dashboard-primary-group-slot motion-enter-soft ${styles.group}`}
       data-component={componentId}
       data-slot="dashboard-primary-group"
     >
@@ -31,7 +34,7 @@ export function DashboardPrimaryGroup({
         data-component={chartComponentId}
         data-slot="dashboard-primary-chart-panel"
       >
-        <BalanceChart copy={chartCopy} language={language} />
+        <BalanceChart copy={chartCopy} locale={locale} />
       </div>
 
       <VerticalKpiPanel copy={verticalCopy} componentId={verticalComponentId} />

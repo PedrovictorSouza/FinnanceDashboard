@@ -1,32 +1,32 @@
 {
   "aria": {
-    "language": "Selecao de idioma",
+    "language": "Seleção de idioma",
     "sidebar": "Barra lateral",
-    "mainNav": "Navegacao principal"
+    "mainNav": "Navegação principal"
   },
   "languageButtons": {
     "EN": "EN",
     "PT": "PT",
     "DE": "DE"
   },
-  "skipLink": "Pular para o conteudo principal",
+  "skipLink": "Pular para o conteúdo principal",
   "sidebar": {
     "dashboard": "Painel",
     "accounts": "Contas",
     "transactions": {
-      "title": "Transacoes",
-      "history": "Historico",
-      "integration": "Integracoes",
-      "reports": "Relatorios"
+      "title": "Transações",
+      "history": "Histórico",
+      "integration": "Integrações",
+      "reports": "Relatórios"
     },
     "cashFlow": "Fluxo de caixa",
-    "budget": "Orcamento",
+    "budget": "Orçamento",
     "investments": "Investimentos",
     "learningCenter": "Centro de aprendizado",
     "support": "Suporte",
     "upgrade": {
       "title": "Upgrade para Pro",
-      "subtitle": "Desbloqueie recursos avancados e suporte prioritario.",
+      "subtitle": "Desbloqueie recursos avançados e suporte prioritário.",
       "cta": "Fazer upgrade"
     }
   },
@@ -46,20 +46,20 @@
   },
   "content": {
     "title": "Painel Financeiro",
-    "subtitle": "Visao consolidada das principais metricas do mes.",
+    "subtitle": "Visão consolidada das principais métricas do mês.",
     "cardPrimary": "Receita mensal",
     "cardVertical": "Saldo diario",
     "cardRightTop": "Indicadores",
     "cardMediumLeft": "Despesas fixas",
-    "cardMediumRight": "Despesas variaveis",
+    "cardMediumRight": "Despesas variáveis",
     "cardLarge1": "Meta de economia",
     "cardLarge2": "Investimentos",
     "cardLarge3": "Fluxo de caixa",
-    "cardRightBottom": "Projecao trimestral"
+    "cardRightBottom": "Projeção trimestral"
   },
   "chart": {
     "total": "$12,450",
-    "subtitle": "Visao de saldo",
+    "subtitle": "Visão de saldo",
     "rangeLabel": "7 d",
     "legend": {
       "savings": "Economias",
@@ -77,10 +77,10 @@
     ],
     "tooltipDate": "Quarta-feira, 7 jan 2025",
     "aria": {
-      "chart": "Grafico de saldo",
-      "range": "Selecionar periodo",
-      "controls": "Opcoes do grafico",
-      "legend": "Legenda do grafico"
+      "chart": "Gráfico de saldo",
+      "range": "Selecionar período",
+      "controls": "Opções do gráfico",
+      "legend": "Legenda do gráfico"
     }
   },
   "search": {
@@ -96,18 +96,18 @@
     },
     "aria": {
       "tools": "Ferramentas do topo",
-      "actions": "Acoes rapidas",
-      "notifications": "Abrir notificacoes",
-      "settings": "Abrir configuracoes",
-      "profile": "Abrir perfil do usuario",
+      "actions": "Ações rápidas",
+      "notifications": "Abrir notificações",
+      "settings": "Abrir configurações",
+      "profile": "Abrir perfil do usuário",
       "addWidget": "Adicionar novo widget"
     }
   },
   "walletPanel": {
-    "title": "Meu Cartao",
+    "title": "Meu Cartão",
     "subtitle": "Quick payment",
-    "addCard": "+ Adicionar cartao",
-    "previewLabel": "Proximo",
+    "addCard": "+ Adicionar cartão",
+    "previewLabel": "Próximo",
     "quickPaymentLabel": "Quick payment",
     "slides": [
       "Pessoal",
@@ -130,70 +130,94 @@
       "Gas"
     ],
     "aria": {
-      "carousel": "Carrossel de cartoes",
-      "addCard": "Adicionar novo cartao",
-      "prev": "Cartao anterior",
-      "next": "Proximo cartao",
+      "carousel": "Carrossel de cartões",
+      "addCard": "Adicionar novo cartão",
+      "prev": "Cartão anterior",
+      "next": "Próximo cartão",
       "primaryShortcuts": "Atalhos principais",
-      "secondaryShortcuts": "Atalhos secundarios"
+      "secondaryShortcuts": "Atalhos secundários"
     }
   },
   "verticalCard": {
-    "aria": "Resumo diario em tres linhas",
+    "aria": "Resumo diário em três linhas",
     "items": [
       {
-        "title": "Saldo diario",
+        "title": "Saldo diário",
         "subtitle": "$15.000",
         "support": "3.2% vs ontem"
       },
       {
         "title": "Entradas",
         "subtitle": "$6.700",
-        "support": "+ 12 lancamentos"
+        "support": "+ 12 lançamentos"
       },
       {
-        "title": "Saidas",
+        "title": "Saídas",
         "subtitle": "$8.300",
-        "support": "4 pendencias"
+        "support": "4 pendências"
       }
     ]
   },
   "spendingCard": {
     "title": "Limite mensal de gastos",
-    "subtitle": "Contas destinatarias",
+    "subtitle": "Contas destinatárias",
     "minLabel": "$8.600",
     "maxLabel": "$10.000",
     "progress": 63,
     "aria": {
-      "icon": "Icone do limite",
+      "icon": "Ícone do limite",
       "slider": "Controle de limite mensal de gastos"
     }
   },
   "variableCard": {
-    "title": "Despesas variaveis",
+    "title": "Despesas não essenciais",
     "subtitle": "Acompanhe ajustes e custos sazonais.",
-    "cta": "Read more",
+    "totalLabel": "Total no período",
+    "totalValue": "$2.480",
+    "delta": "+8.4% vs mês passado",
+    "items": [
+      {
+        "label": "Alimentação fora",
+        "amount": "$860",
+        "share": "35%",
+        "color": "#d89b48"
+      },
+      {
+        "label": "Mobilidade",
+        "amount": "$690",
+        "share": "28%",
+        "color": "#b7ca54"
+      },
+      {
+        "label": "Lazer",
+        "amount": "$420",
+        "share": "17%",
+        "color": "#8fc35d"
+      }
+    ],
+    "note": "Maior pressão em alimentação fora e transporte por app nas últimas semanas.",
     "aria": {
-      "readMore": "Ler mais sobre despesas variaveis"
+      "summary": "Resumo de despesas variáveis",
+      "list": "Principais categorias de despesas variáveis"
     }
   },
   "healthCard": {
-    "title": "Saude financeira",
-    "subtitle": "Pontuacao atual",
+    "title": "Saúde financeira",
+    "subtitle": "Pontuação atual",
     "period": "30 d",
     "value": "$15.780",
-    "change": "+17.5% vs mes passado",
+    "change": "+17.5% vs mês passado",
     "percent": 75,
     "percentLabel": "Da renda mensal poupada",
-    "note": "Com base em metricas agregadas dos ultimos 30 dias",
+    "note": "Com base em métricas agregadas dos últimos 30 dias",
     "aria": {
-      "period": "Selecionar periodo da saude financeira",
-      "gauge": "Medidor de saude financeira"
+      "period": "Selecionar período da saúde financeira",
+      "gauge": "Medidor de saúde financeira"
     }
   },
   "costCard": {
-    "title": "Analise de custos",
-    "subtitle": "Visao geral de gastos",
+    "title": "Análise de custos",
+    "subtitle": "Visão geral de gastos",
     "period": "Janeiro",
     "value": "$8,450",
     "segments": [
@@ -209,12 +233,12 @@
         "color": "#e09a43"
       },
       {
-        "label": "Pagamento de dividas",
+        "label": "Pagamento de dívidas",
         "percent": "7%",
         "color": "#ddad47"
       },
       {
-        "label": "Alimentacao",
+        "label": "Alimentação",
         "percent": "6%",
         "color": "#d0c84c"
       },
@@ -224,7 +248,7 @@
         "color": "#b8ca54"
       },
       {
-        "label": "Saude",
+        "label": "Saúde",
         "percent": "11%",
         "color": "#9ac260"
       },
@@ -240,9 +264,9 @@
       }
     ],
     "aria": {
-      "period": "Selecionar mes da analise de custos",
-      "segments": "Barra segmentada de distribuicao de custos",
-      "breakdown": "Distribuicao de custos por categoria"
+      "period": "Selecionar mês da análise de custos",
+      "segments": "Barra segmentada de distribuição de custos",
+      "breakdown": "Distribuição de custos por categoria"
     }
   },
   "goalCard": {
@@ -308,7 +332,7 @@
         "date": "25 Fev 2025",
         "amount": "+ $1,100",
         "amountTone": "positive",
-        "status": "Concluido",
+        "status": "Concluído",
         "statusTone": "completed"
       },
       {
@@ -324,7 +348,7 @@
         "date": "21 Fev 2025",
         "amount": "- $900",
         "amountTone": "negative",
-        "status": "Concluido",
+        "status": "Concluído",
         "statusTone": "completed"
       },
       {
@@ -332,15 +356,15 @@
         "date": "17 Fev 2025",
         "amount": "- $2,100",
         "amountTone": "negative",
-        "status": "Concluido",
+        "status": "Concluído",
         "statusTone": "completed"
       },
       {
-        "name": "Salario mensal",
+        "name": "Salário mensal",
         "date": "15 Fev 2025",
         "amount": "+ $3,800",
         "amountTone": "positive",
-        "status": "Concluido",
+        "status": "Concluído",
         "statusTone": "completed"
       },
       {
@@ -353,8 +377,8 @@
       }
     ],
     "aria": {
-      "period": "Selecionar periodo do historico",
-      "list": "Lista de historico de transacoes"
+      "period": "Selecionar período do histórico",
+      "list": "Lista de histórico de transações"
     }
   }
 }

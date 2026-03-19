@@ -1,15 +1,15 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+import type { DashboardVerticalCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
 import styles from "./VerticalKpiPanel.module.css";
 
 type VerticalKpiPanelProps = {
-  copy: DashboardDictionary["verticalCard"];
+  copy: DashboardVerticalCardViewModel;
   componentId: string;
 };
 
 export function VerticalKpiPanel({ copy, componentId }: VerticalKpiPanelProps) {
   return (
     <article
-      className={styles["vertical-panel"]}
+      className={`motion-enter-right ${styles["vertical-panel"]}`}
       data-component={componentId}
       data-slot="vertical-kpi-panel"
       aria-labelledby="vertical-kpis-heading"

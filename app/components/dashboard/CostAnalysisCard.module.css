@@ -34,7 +34,7 @@
 .subtitle {
   margin: 1px 0 0;
   font-size: var(--fs-small);
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--text-muted);
 }
 
@@ -54,7 +54,10 @@
 }
 
 .caret {
-  font-size: var(--fs-small);
+  width: 10px;
+  height: 6px;
+  flex: 0 0 auto;
+  display: block;
 }
 
 .value {
@@ -111,7 +114,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--cost-breakdown-row-gap);
+  gap: 8px;
   min-height: 0;
 }
 
@@ -142,6 +145,56 @@
   height: 8px;
   border-radius: 2px;
   flex: 0 0 auto;
+}
+
+[data-slot="cost-analysis-card"] .header,
+[data-slot="cost-analysis-card"] .value,
+[data-slot="cost-analysis-card"] .segments,
+[data-slot="cost-analysis-card"] .breakdown li {
+  opacity: 0;
+  animation: var(--anim-dashboard-fade-up) 700ms var(--motion-ease-soft) both;
+}
+
+[data-slot="cost-analysis-card"] .header {
+  animation-delay: calc(var(--enter-delay, 0ms) + 120ms);
+}
+
+[data-slot="cost-analysis-card"] .value {
+  animation-delay: calc(var(--enter-delay, 0ms) + 190ms);
+}
+
+[data-slot="cost-analysis-card"] .segments {
+  animation-delay: calc(var(--enter-delay, 0ms) + 240ms);
+}
+
+[data-slot="cost-analysis-card"] .segment {
+  transform-origin: left center;
+  animation: var(--anim-dashboard-reveal-line) 760ms var(--motion-ease-soft) both;
+  animation-delay: calc(var(--enter-delay, 0ms) + 300ms + (var(--segment-index, 0) * 30ms));
+}
+
+[data-slot="cost-analysis-card"] .breakdown li:nth-child(1) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 340ms);
+}
+
+[data-slot="cost-analysis-card"] .breakdown li:nth-child(2) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 390ms);
+}
+
+[data-slot="cost-analysis-card"] .breakdown li:nth-child(3) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 440ms);
+}
+
+[data-slot="cost-analysis-card"] .breakdown li:nth-child(4) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 490ms);
+}
+
+[data-slot="cost-analysis-card"] .breakdown li:nth-child(5) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 540ms);
+}
+
+[data-slot="cost-analysis-card"] .breakdown li:nth-child(6) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 590ms);
 }
 
 @media (width <= 700px) {

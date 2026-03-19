@@ -1,12 +1,15 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+import type {
+  DashboardGoalCardViewModel,
+  DashboardGoalItemViewModel,
+} from "../../modules/dashboard/domain/dashboard.types";
 import styles from "./GoalTrackerCard.module.css";
 
 type GoalTrackerCardProps = {
-  copy: DashboardDictionary["goalCard"];
+  copy: DashboardGoalCardViewModel;
   componentId: string;
 };
 
-type GoalItem = DashboardDictionary["goalCard"]["thisYear"]["item"];
+type GoalItem = DashboardGoalItemViewModel;
 
 type GoalListItemProps = {
   item: GoalItem;
@@ -103,7 +106,7 @@ export function GoalTrackerCard({ copy, componentId }: GoalTrackerCardProps) {
       data-slot="dashboard-goal-slot"
     >
       <article
-        className={styles["goal-tracker-card"]}
+        className={`motion-enter ${styles["goal-tracker-card"]}`}
         data-slot="goal-tracker-card"
         aria-labelledby={titleId}
       >

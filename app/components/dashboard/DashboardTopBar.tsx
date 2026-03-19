@@ -1,20 +1,17 @@
 import Link from "next/link";
-import type { DashboardDictionary, LanguageCode } from "../../lib/i18n";
+import type {
+  DashboardLanguageOptionViewModel,
+  DashboardSearchViewModel,
+  DashboardTopBarViewModel,
+} from "../../modules/dashboard/domain/dashboard.types";
 import styles from "./DashboardTopBar.module.css";
-
-type LanguageOption = {
-  code: LanguageCode;
-  href: string;
-  label: string;
-  isCurrent: boolean;
-};
 
 type DashboardTopBarProps = {
   componentId: string;
-  search: DashboardDictionary["search"];
-  topBar: DashboardDictionary["topBar"];
+  search: DashboardSearchViewModel;
+  topBar: DashboardTopBarViewModel;
   languageAriaLabel: string;
-  languageOptions: LanguageOption[];
+  languageOptions: DashboardLanguageOptionViewModel[];
 };
 
 export function DashboardTopBar({
@@ -27,7 +24,7 @@ export function DashboardTopBar({
   return (
     <header
       id="resumo"
-      className={`dashboard-top-slot ${styles["top-bar"]}`}
+      className={`dashboard-top-slot motion-enter ${styles["top-bar"]}`}
       data-component={componentId}
       data-slot="dashboard-top-bar"
     >

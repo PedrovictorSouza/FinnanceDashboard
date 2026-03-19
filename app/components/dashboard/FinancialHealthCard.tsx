@@ -1,13 +1,24 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+"use client";
+
+import type { DashboardHealthCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
+import { DisclosureCaret } from "../DisclosureCaret";
+import { useAnimatedNumber } from "./animatedMetrics";
 import styles from "./FinancialHealthCard.module.css";
 
 type FinancialHealthCardProps = {
-  copy: DashboardDictionary["healthCard"];
+  copy: DashboardHealthCardViewModel;
   componentId: string;
 };
 
 export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardProps) {
-  const healthGaugeDeg = Math.min(100, Math.max(0, copy.percent)) * 1.8;
+  const animatedPercent = useAnimatedNumber(copy.percent, {
+    delay: 330,
+    duration: 1_020,
+  });
+  const displayedPercent = Math.round(animatedPercent);
+  const normalizedPercent = Math.min(100, Math.max(0, animatedPercent));
+  const healthGaugeDeg = normalizedPercent * 1.8;
+  const accentSplitDeg = Math.max(0, healthGaugeDeg * 0.45);
 
   return (
     <section
@@ -15,7 +26,7 @@ export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardPr
       data-component={componentId}
       data-slot="dashboard-health-slot"
     >
-      <article className={styles.card} data-slot="financial-health-card">
+      <article className={`motion-enter-soft ${styles.card}`} data-slot="financial-health-card">
         <header className={styles.header} data-slot="financial-health-card-header">
           <div data-slot="financial-health-card-heading">
             <h2 className={styles.title} data-slot="financial-health-card-title">
@@ -33,9 +44,11 @@ export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardPr
             aria-label={copy.aria.period}
           >
             <span>{copy.period}</span>
-            <span className={styles.caret} data-slot="financial-health-card-caret" aria-hidden="true">
-              v
-            </span>
+            <DisclosureCaret
+              className={styles.caret}
+              data-slot="financial-health-card-caret"
+              aria-hidden="true"
+            />
           </button>
         </header>
 
@@ -60,14 +73,14 @@ export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardPr
             style={{
               background: `conic-gradient(
                 from 180deg at 50% 100%,
-                #d7e95a 0deg ${Math.max(0, healthGaugeDeg * 0.45)}deg,
-                #95cb4f ${Math.max(0, healthGaugeDeg * 0.45)}deg ${healthGaugeDeg}deg,
+                #d7e95a 0deg ${accentSplitDeg}deg,
+                #95cb4f ${accentSplitDeg}deg ${healthGaugeDeg}deg,
                 #e3e3e3 ${healthGaugeDeg}deg 180deg
               )`,
             }}
           />
           <h1 className={styles.percent} data-slot="financial-health-card-percent">
-            {copy.percent}%
+            {displayedPercent}%
           </h1>
           <div className={styles["gauge-center"]} data-slot="financial-health-card-gauge-center">
             <p className={styles["percent-label"]} data-slot="financial-health-card-percent-label">

@@ -82,6 +82,26 @@
   line-height: 1;
 }
 
+[data-slot="spending-limit-card"] .header,
+[data-slot="spending-limit-card"] .slider-wrap {
+  opacity: 0;
+  animation: var(--anim-dashboard-fade-up) 680ms var(--motion-ease-soft) both;
+}
+
+[data-slot="spending-limit-card"] .header {
+  animation-delay: calc(var(--enter-delay, 0ms) + 120ms);
+}
+
+[data-slot="spending-limit-card"] .slider-wrap {
+  animation-delay: calc(var(--enter-delay, 0ms) + 210ms);
+}
+
+[data-slot="spending-limit-card"] .slider-fill {
+  transform-origin: left center;
+  animation: var(--anim-dashboard-reveal-line) 820ms var(--motion-ease-soft) both;
+  animation-delay: calc(var(--enter-delay, 0ms) + 280ms);
+}
+
 @media (width <= 700px) {
   .slider-track {
     height: 16px;

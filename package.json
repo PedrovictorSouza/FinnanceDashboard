@@ -7,11 +7,16 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "test:ui": "playwright test",
+    "test:ui:headed": "playwright test --headed",
+    "test:ui:update": "playwright test --update-snapshots",
     "check:dashboard-css": "node scripts/check-dashboard-css.mjs",
+    "check:wallet-panel-css": "node scripts/check-wallet-panel-css.mjs",
+    "check:vertical-kpi-css": "node scripts/check-vertical-kpi-css.mjs",
     "lint:css": "stylelint \"app/**/*.css\"",
     "lint:css:fix": "stylelint \"app/**/*.css\" --fix",
     "lint:layout": "node scripts/lint-layout.mjs",
-    "lint:frontend": "npm run lint:css && npm run lint:layout"
+    "lint:frontend": "npm run lint:css && npm run lint:layout && npm run check:wallet-panel-css && npm run check:vertical-kpi-css"
   },
   "dependencies": {
     "@visx/axis": "^3.12.0",
@@ -28,6 +33,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

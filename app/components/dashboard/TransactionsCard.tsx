@@ -1,8 +1,9 @@
-import type { DashboardDictionary } from "../../lib/i18n";
+import type { DashboardTransactionsCardViewModel } from "../../modules/dashboard/domain/dashboard.types";
+import { DisclosureCaret } from "../DisclosureCaret";
 import styles from "./TransactionsCard.module.css";
 
 type TransactionsCardProps = {
-  copy: DashboardDictionary["transactionCard"];
+  copy: DashboardTransactionsCardViewModel;
   componentId: string;
 };
 
@@ -13,7 +14,7 @@ export function TransactionsCard({ copy, componentId }: TransactionsCardProps) {
       data-component={componentId}
       data-slot="dashboard-transactions-slot"
     >
-      <article className={styles.card} data-slot="transactions-card">
+      <article className={`motion-enter ${styles.card}`} data-slot="transactions-card">
         <header className={styles.header} data-slot="transactions-card-header">
           <h2 className={styles.title} data-slot="transactions-card-title">
             {copy.title}
@@ -25,9 +26,11 @@ export function TransactionsCard({ copy, componentId }: TransactionsCardProps) {
             aria-label={copy.aria.period}
           >
             <span>{copy.period}</span>
-            <span className={styles.caret} data-slot="transactions-card-caret" aria-hidden="true">
-              v
-            </span>
+            <DisclosureCaret
+              className={styles.caret}
+              data-slot="transactions-card-caret"
+              aria-hidden="true"
+            />
           </button>
         </header>
 

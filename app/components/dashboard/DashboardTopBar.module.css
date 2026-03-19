@@ -273,6 +273,37 @@
   opacity: 1;
 }
 
+[data-slot="dashboard-top-bar"] .search-form,
+[data-slot="dashboard-top-bar"] .top-actions > *,
+[data-slot="dashboard-top-bar"] .language-switcher {
+  opacity: 0;
+  animation: var(--anim-dashboard-fade-up) 680ms var(--motion-ease-soft) both;
+}
+
+[data-slot="dashboard-top-bar"] .search-form {
+  animation-delay: calc(var(--enter-delay, 0ms) + 100ms);
+}
+
+[data-slot="dashboard-top-bar"] .top-actions > *:nth-child(1) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 150ms);
+}
+
+[data-slot="dashboard-top-bar"] .top-actions > *:nth-child(2) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 200ms);
+}
+
+[data-slot="dashboard-top-bar"] .top-actions > *:nth-child(3) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 250ms);
+}
+
+[data-slot="dashboard-top-bar"] .top-actions > *:nth-child(4) {
+  animation-delay: calc(var(--enter-delay, 0ms) + 300ms);
+}
+
+[data-slot="dashboard-top-bar"] .language-switcher {
+  animation-delay: calc(var(--enter-delay, 0ms) + 340ms);
+}
+
 @media (width <= 700px) {
   .top-bar {
     grid-template-columns: 1fr;
