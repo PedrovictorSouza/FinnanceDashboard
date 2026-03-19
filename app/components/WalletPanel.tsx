@@ -50,6 +50,21 @@ const walletSecondaryPersonaShortcuts = [
   },
 ];
 
+const walletPrimaryActionShortcuts = [
+  {
+    name: "Send",
+    image: "/images/cards-container/icons/send-icon.svg",
+  },
+  {
+    name: "Request",
+    image: "/images/cards-container/icons/request-icon.svg",
+  },
+  {
+    name: "More",
+    image: "/images/cards-container/icons/more-icon.svg",
+  },
+];
+
 export function WalletPanel({ copy }: WalletPanelProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({
@@ -150,20 +165,21 @@ export function WalletPanel({ copy }: WalletPanelProps) {
         data-slot="wallet-shortcuts-primary"
         aria-label={copy.aria.primaryShortcuts}
       >
-        {copy.primaryShortcuts.map((item) => (
-          <li key={item} data-slot="wallet-shortcut-entry">
+        {walletPrimaryActionShortcuts.map((item) => (
+          <li key={item.name} data-slot="wallet-shortcut-entry">
             <button
               type="button"
               className={`${styles["wallet-shortcut-item"]} ${styles["wallet-shortcut-item-primary"]}`}
               data-slot="wallet-shortcut-item-primary"
             >
               <span
-                className={`${styles["wallet-shortcut-image"]} ${styles["wallet-shortcut-image-primary"]} upload-area`}
+                className={`${styles["wallet-shortcut-image"]} ${styles["wallet-shortcut-image-primary"]}`}
                 data-slot="wallet-shortcut-image-primary"
                 aria-hidden="true"
+                style={{ backgroundImage: `url(${item.image})` }}
               />
               <span className={styles["wallet-shortcut-text"]} data-slot="wallet-shortcut-text">
-                {item}
+                {item.name}
               </span>
             </button>
           </li>

@@ -88,35 +88,10 @@
   width: 25px;
   height: 25px;
   border-radius: 3px;
-  background: linear-gradient(135deg, #d5d5d5 0%, #bfbfbf 100%);
-}
-
-.transaction-avatar-1 {
-  background: linear-gradient(135deg, #8fbf4e 0%, #6ca63f 100%);
-}
-
-.transaction-avatar-2 {
-  background: linear-gradient(135deg, #2a5da8 0%, #1a3d78 100%);
-}
-
-.transaction-avatar-3 {
-  background: linear-gradient(135deg, #40161f 0%, #1e070b 100%);
-}
-
-.transaction-avatar-4 {
-  background: linear-gradient(135deg, #222 0%, #050505 100%);
-}
-
-.transaction-avatar-5 {
-  background: linear-gradient(135deg, #18130d 0%, #060403 100%);
-}
-
-.transaction-avatar-6 {
-  background: linear-gradient(135deg, #4d4d4d 0%, #2e2e2e 100%);
-}
-
-.transaction-avatar-7 {
-  background: linear-gradient(135deg, #9c6a52 0%, #6b3f2a 100%);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .transaction-main {

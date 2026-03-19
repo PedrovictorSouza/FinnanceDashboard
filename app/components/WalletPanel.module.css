@@ -150,19 +150,15 @@
 
 .wallet-shortcuts-primary {
   grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  justify-content: start;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-}
-
-.wallet-shortcuts-primary::-webkit-scrollbar {
-  display: none;
+  grid-auto-columns: minmax(0, 1fr);
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .wallet-shortcuts-primary li {
-  justify-items: start;
+  display: grid;
+  place-items: center;
+  min-width: 0;
 }
 
 .wallet-shortcuts-secondary {
@@ -196,8 +192,14 @@
 }
 
 .wallet-shortcut-item-primary {
-  grid-template-rows: 42px auto;
-  margin-right: 10px;
+  grid-template-rows: auto auto;
+  width: 100%;
+  margin-right: 0;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
 }
 
 .wallet-shortcut-item-secondary {
@@ -215,8 +217,14 @@
 }
 
 .wallet-shortcut-image-primary {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
+  align-self: center;
+  padding: 5px;
+  border: 2px solid #c8c3c3;
+  border-radius: 5px;
+  background-color: transparent;
+  background-size: 45%;
 }
 
 .wallet-shortcut-image-secondary {

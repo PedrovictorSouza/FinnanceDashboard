@@ -7,6 +7,16 @@ type TransactionsCardProps = {
   componentId: string;
 };
 
+const transactionAvatarImages = [
+  "/images/transaction/logo1.png",
+  "/images/transaction/logo2.png",
+  "/images/transaction/logo3.png",
+  "/images/transaction/logo4.png",
+  "/images/transaction/logo5.png",
+  "/images/transaction/logo6.png",
+  "/images/transaction/logo7.png",
+];
+
 export function TransactionsCard({ copy, componentId }: TransactionsCardProps) {
   return (
     <section
@@ -47,6 +57,7 @@ export function TransactionsCard({ copy, componentId }: TransactionsCardProps) {
           >
             {copy.items.map((item, index) => {
               const avatarIndex = `${(index % 7) + 1}`;
+              const avatarImage = transactionAvatarImages[index % transactionAvatarImages.length];
               const toneClassName = item.amountTone === "positive" ? styles.positive : styles.negative;
 
               return (
@@ -56,10 +67,11 @@ export function TransactionsCard({ copy, componentId }: TransactionsCardProps) {
                   data-slot="transactions-card-item"
                 >
                   <span
-                    className={`${styles["transaction-avatar"]} ${styles[`transaction-avatar-${avatarIndex}` as keyof typeof styles]} upload-area`}
+                    className={`${styles["transaction-avatar"]} ${styles[`transaction-avatar-${avatarIndex}` as keyof typeof styles]}`}
                     data-slot="transactions-card-avatar"
                     data-avatar-index={avatarIndex}
                     aria-hidden="true"
+                    style={{ backgroundImage: `url(${avatarImage})` }}
                   />
 
                   <div className={styles["transaction-main"]} data-slot="transactions-card-main">
