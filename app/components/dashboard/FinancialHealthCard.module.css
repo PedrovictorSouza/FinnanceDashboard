@@ -1,0 +1,147 @@
+.card {
+  height: 100%;
+  min-height: 0;
+  background: var(--surface-card);
+  padding: var(--dashboard-card-padding);
+  border-radius: var(--radius-sm);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+.period-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--panel-action-h);
+  background: var(--surface-control);
+  color: var(--text-primary);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  line-height: 1;
+  padding: 4px 6px;
+  border: 2px solid #d8d8d8;
+  gap: 4px;
+}
+
+.caret {
+  font-size: var(--fs-small);
+}
+
+.summary {
+  display: grid;
+  gap: 2px;
+}
+
+.value {
+  margin: 0;
+  font-size: var(--fs-h1);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.growth {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-small);
+  color: #4d7d1d;
+  line-height: 1.1;
+}
+
+.growth-icon {
+  width: 9px;
+  height: 9px;
+  background: #81b64d;
+  clip-path: polygon(0 100%, 100% 0, 100% 42%, 42% 42%, 42% 100%);
+  transform: rotate(0deg);
+  border-radius: 1px;
+}
+
+.gauge-wrap {
+  position: relative;
+  align-self: center;
+  width: min(180px, 100%);
+  margin: 0 auto;
+}
+
+.gauge {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+  overflow: hidden;
+}
+
+.gauge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 68%;
+  height: 68%;
+  transform: translateX(-50%);
+  background: var(--surface-card);
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+}
+
+.gauge-center {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.percent {
+  position: absolute;
+  left: 50%;
+  top: 66%;
+  z-index: 1;
+  margin: 0;
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+.percent-label {
+  margin: 2px 0 0;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  line-height: 1.1;
+}
+
+.note {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  line-height: 1.15;
+}
+
+@media (width <= 700px) {
+  .card {
+    gap: 12px;
+  }
+}

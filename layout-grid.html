@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout em CSS Grid</title>
+  <style>
+    :root {
+      --sidebar-w: clamp(92px, 16vw, 230px);
+      --gap: 16px;
+      --stroke: 4px;
+      --line: #111;
+      --bg-page: #e7e7e7;
+      --bg-panel: #d9d9d9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-page);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    }
+
+    .pagina {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+      height: 100dvh;
+      border: var(--stroke) solid var(--line);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100%;
+      border-right: var(--stroke) solid var(--line);
+      background: #ececec;
+    }
+
+    .conteudo {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: 0.55fr 2.2fr 2.2fr 1.2fr 2.1fr 2.1fr;
+      grid-template-areas:
+        "topo topo . ."
+        "card-principal card-principal card-vertical card-direita-superior"
+        "card-principal card-principal card-vertical card-direita-superior"
+        "card-medio-esquerda card-medio-esquerda card-medio-direita card-direita-superior"
+        "card-grande-1 card-grande-2 card-grande-3 card-direita-inferior"
+        "card-grande-1 card-grande-2 card-grande-3 card-direita-inferior";
+      gap: var(--gap);
+      padding: var(--gap);
+      background: #e3e3e3;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .bloco {
+      border: var(--stroke) solid var(--line);
+      background: var(--bg-panel);
+    }
+
+    .topo {
+      grid-area: topo;
+      width: min(380px, 65%);
+      align-self: center;
+      justify-self: start;
+    }
+
+    .card-principal { grid-area: card-principal; }
+    .card-vertical { grid-area: card-vertical; }
+    .card-direita-superior { grid-area: card-direita-superior; }
+    .card-medio-esquerda { grid-area: card-medio-esquerda; }
+    .card-medio-direita { grid-area: card-medio-direita; }
+    .card-grande-1 { grid-area: card-grande-1; }
+    .card-grande-2 { grid-area: card-grande-2; }
+    .card-grande-3 { grid-area: card-grande-3; }
+    .card-direita-inferior { grid-area: card-direita-inferior; }
+
+    @media (max-width: 700px) {
+      .conteudo {
+        gap: 10px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="pagina">
+    <aside class="sidebar"></aside>
+
+    <main class="conteudo">
+      <header class="bloco topo"></header>
+
+      <section class="bloco card-principal"></section>
+      <section class="bloco card-vertical"></section>
+      <section class="bloco card-direita-superior"></section>
+
+      <section class="bloco card-medio-esquerda"></section>
+      <section class="bloco card-medio-direita"></section>
+
+      <section class="bloco card-grande-1"></section>
+      <section class="bloco card-grande-2"></section>
+      <section class="bloco card-grande-3"></section>
+
+      <section class="bloco card-direita-inferior"></section>
+    </main>
+  </div>
+</body>
+</html>

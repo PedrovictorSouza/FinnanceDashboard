@@ -1,0 +1,36 @@
+.card {
+  height: 100%;
+  min-height: 0;
+  background: var(--surface-card);
+  padding: var(--dashboard-card-padding);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.button {
+  background: var(--surface-control);
+  color: var(--text-primary);
+  font-size: var(--fs-p);
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+@media (width <= 700px) {
+  .title {
+    font-size: var(--fs-h3);
+  }
+}

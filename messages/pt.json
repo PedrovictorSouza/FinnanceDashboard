@@ -1,0 +1,360 @@
+{
+  "aria": {
+    "language": "Selecao de idioma",
+    "sidebar": "Barra lateral",
+    "mainNav": "Navegacao principal"
+  },
+  "languageButtons": {
+    "EN": "EN",
+    "PT": "PT",
+    "DE": "DE"
+  },
+  "skipLink": "Pular para o conteudo principal",
+  "sidebar": {
+    "dashboard": "Painel",
+    "accounts": "Contas",
+    "transactions": {
+      "title": "Transacoes",
+      "history": "Historico",
+      "integration": "Integracoes",
+      "reports": "Relatorios"
+    },
+    "cashFlow": "Fluxo de caixa",
+    "budget": "Orcamento",
+    "investments": "Investimentos",
+    "learningCenter": "Centro de aprendizado",
+    "support": "Suporte",
+    "upgrade": {
+      "title": "Upgrade para Pro",
+      "subtitle": "Desbloqueie recursos avancados e suporte prioritario.",
+      "cta": "Fazer upgrade"
+    }
+  },
+  "components": {
+    "sidebar": "Sidebar",
+    "top": "Topo",
+    "cardPrimary": "CardPrincipal",
+    "cardVertical": "CardVertical",
+    "cardRightTop": "CardDireitaSuperior",
+    "cardMediumLeft": "CardMedioEsquerda",
+    "cardMediumRight": "CardMedioDireita",
+    "cardLarge1": "CardGrande1",
+    "cardLarge2": "CardGrande2",
+    "cardLarge3": "CardGrande3",
+    "cardRightBottom": "CardDireitaInferior",
+    "cardPrimaryGroup": "GrupoPrincipal"
+  },
+  "content": {
+    "title": "Painel Financeiro",
+    "subtitle": "Visao consolidada das principais metricas do mes.",
+    "cardPrimary": "Receita mensal",
+    "cardVertical": "Saldo diario",
+    "cardRightTop": "Indicadores",
+    "cardMediumLeft": "Despesas fixas",
+    "cardMediumRight": "Despesas variaveis",
+    "cardLarge1": "Meta de economia",
+    "cardLarge2": "Investimentos",
+    "cardLarge3": "Fluxo de caixa",
+    "cardRightBottom": "Projecao trimestral"
+  },
+  "chart": {
+    "total": "$12,450",
+    "subtitle": "Visao de saldo",
+    "rangeLabel": "7 d",
+    "legend": {
+      "savings": "Economias",
+      "income": "Entradas",
+      "expenses": "Despesas"
+    },
+    "days": [
+      "Dom",
+      "Seg",
+      "Ter",
+      "Qua",
+      "Qui",
+      "Sex",
+      "Sab"
+    ],
+    "tooltipDate": "Quarta-feira, 7 jan 2025",
+    "aria": {
+      "chart": "Grafico de saldo",
+      "range": "Selecionar periodo",
+      "controls": "Opcoes do grafico",
+      "legend": "Legenda do grafico"
+    }
+  },
+  "search": {
+    "aria": "Busca principal",
+    "label": "Campo de busca",
+    "placeholder": "Buscar..."
+  },
+  "topBar": {
+    "addWidget": "Adicionar widget",
+    "user": {
+      "name": "Michael Johnson",
+      "email": "m.johnson@fince.com"
+    },
+    "aria": {
+      "tools": "Ferramentas do topo",
+      "actions": "Acoes rapidas",
+      "notifications": "Abrir notificacoes",
+      "settings": "Abrir configuracoes",
+      "profile": "Abrir perfil do usuario",
+      "addWidget": "Adicionar novo widget"
+    }
+  },
+  "walletPanel": {
+    "title": "Meu Cartao",
+    "subtitle": "Quick payment",
+    "addCard": "+ Adicionar cartao",
+    "previewLabel": "Proximo",
+    "quickPaymentLabel": "Quick payment",
+    "slides": [
+      "Pessoal",
+      "Empresa",
+      "Viagem"
+    ],
+    "primaryShortcuts": [
+      "Netflix",
+      "Uber",
+      "Ifood",
+      "Spotify",
+      "Amazon"
+    ],
+    "secondaryShortcuts": [
+      "Pix",
+      "Boleto",
+      "Luz",
+      "Agua",
+      "Internet",
+      "Gas"
+    ],
+    "aria": {
+      "carousel": "Carrossel de cartoes",
+      "addCard": "Adicionar novo cartao",
+      "prev": "Cartao anterior",
+      "next": "Proximo cartao",
+      "primaryShortcuts": "Atalhos principais",
+      "secondaryShortcuts": "Atalhos secundarios"
+    }
+  },
+  "verticalCard": {
+    "aria": "Resumo diario em tres linhas",
+    "items": [
+      {
+        "title": "Saldo diario",
+        "subtitle": "$15.000",
+        "support": "3.2% vs ontem"
+      },
+      {
+        "title": "Entradas",
+        "subtitle": "$6.700",
+        "support": "+ 12 lancamentos"
+      },
+      {
+        "title": "Saidas",
+        "subtitle": "$8.300",
+        "support": "4 pendencias"
+      }
+    ]
+  },
+  "spendingCard": {
+    "title": "Limite mensal de gastos",
+    "subtitle": "Contas destinatarias",
+    "minLabel": "$8.600",
+    "maxLabel": "$10.000",
+    "progress": 63,
+    "aria": {
+      "icon": "Icone do limite",
+      "slider": "Controle de limite mensal de gastos"
+    }
+  },
+  "variableCard": {
+    "title": "Despesas variaveis",
+    "subtitle": "Acompanhe ajustes e custos sazonais.",
+    "cta": "Read more",
+    "aria": {
+      "readMore": "Ler mais sobre despesas variaveis"
+    }
+  },
+  "healthCard": {
+    "title": "Saude financeira",
+    "subtitle": "Pontuacao atual",
+    "period": "30 d",
+    "value": "$15.780",
+    "change": "+17.5% vs mes passado",
+    "percent": 75,
+    "percentLabel": "Da renda mensal poupada",
+    "note": "Com base em metricas agregadas dos ultimos 30 dias",
+    "aria": {
+      "period": "Selecionar periodo da saude financeira",
+      "gauge": "Medidor de saude financeira"
+    }
+  },
+  "costCard": {
+    "title": "Analise de custos",
+    "subtitle": "Visao geral de gastos",
+    "period": "Janeiro",
+    "value": "$8,450",
+    "segments": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "categories": [
+      {
+        "label": "Moradia",
+        "percent": "18%",
+        "color": "#e09a43"
+      },
+      {
+        "label": "Pagamento de dividas",
+        "percent": "7%",
+        "color": "#ddad47"
+      },
+      {
+        "label": "Alimentacao",
+        "percent": "6%",
+        "color": "#d0c84c"
+      },
+      {
+        "label": "Transporte",
+        "percent": "9%",
+        "color": "#b8ca54"
+      },
+      {
+        "label": "Saude",
+        "percent": "11%",
+        "color": "#9ac260"
+      },
+      {
+        "label": "Investimentos",
+        "percent": "14%",
+        "color": "#7eb77a"
+      },
+      {
+        "label": "Outros",
+        "percent": "35%",
+        "color": "#68a592"
+      }
+    ],
+    "aria": {
+      "period": "Selecionar mes da analise de custos",
+      "segments": "Barra segmentada de distribuicao de custos",
+      "breakdown": "Distribuicao de custos por categoria"
+    }
+  },
+  "goalCard": {
+    "title": "Goal tracker",
+    "addCta": "+ Add goals",
+    "thisYear": {
+      "label": "This year",
+      "item": {
+        "title": "Reserva",
+        "current": "$7.000",
+        "total": "$10.000",
+        "progress": 70,
+        "support": "faltam 5 meses"
+      }
+    },
+    "longTerm": {
+      "label": "Long term",
+      "items": [
+        {
+          "title": "Viagem",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "faltam 3 meses"
+        },
+        {
+          "title": "Viagem",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "faltam 3 meses"
+        },
+        {
+          "title": "Viagem",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "faltam 3 meses"
+        },
+        {
+          "title": "Viagem",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "faltam 3 meses"
+        }
+      ]
+    },
+    "aria": {
+      "add": "Adicionar nova meta"
+    }
+  },
+  "transactionCard": {
+    "title": "Transaction history",
+    "period": "7 d",
+    "columns": {
+      "name": "1. Nome",
+      "amount": "Valor"
+    },
+    "items": [
+      {
+        "name": "Dividend payout",
+        "date": "25 Fev 2025",
+        "amount": "+ $1,100",
+        "amountTone": "positive",
+        "status": "Concluido",
+        "statusTone": "completed"
+      },
+      {
+        "name": "corporate subscriptions",
+        "date": "25 Fev 2025",
+        "amount": "- $6,400",
+        "amountTone": "negative",
+        "status": "Pendente",
+        "statusTone": "pending"
+      },
+      {
+        "name": "Investment in ETF",
+        "date": "21 Fev 2025",
+        "amount": "- $900",
+        "amountTone": "negative",
+        "status": "Concluido",
+        "statusTone": "completed"
+      },
+      {
+        "name": "Consulting services",
+        "date": "17 Fev 2025",
+        "amount": "- $2,100",
+        "amountTone": "negative",
+        "status": "Concluido",
+        "statusTone": "completed"
+      },
+      {
+        "name": "Salario mensal",
+        "date": "15 Fev 2025",
+        "amount": "+ $3,800",
+        "amountTone": "positive",
+        "status": "Concluido",
+        "statusTone": "completed"
+      },
+      {
+        "name": "Assinatura de software",
+        "date": "12 Fev 2025",
+        "amount": "- $320",
+        "amountTone": "negative",
+        "status": "Pendente",
+        "statusTone": "pending"
+      }
+    ],
+    "aria": {
+      "period": "Selecionar periodo do historico",
+      "list": "Lista de historico de transacoes"
+    }
+  }
+}

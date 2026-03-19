@@ -1,0 +1,26 @@
+.group {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(220px, 1fr);
+  align-items: stretch;
+  gap: 10px;
+}
+
+.chart-panel {
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+}
+
+@media (width <= 860px) {
+  .group {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width >= 861px) and (width <= 1180px) {
+  .group {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
+}

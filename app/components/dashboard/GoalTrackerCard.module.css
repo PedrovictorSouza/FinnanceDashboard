@@ -1,0 +1,200 @@
+.goal-tracker-card {
+  --goal-thumb-size: 40px;
+  --goal-item-column-gap: 9px;
+
+  height: 100%;
+  min-height: 0;
+  background: var(--surface-card);
+  padding: var(--dashboard-card-padding);
+  border-radius: var(--radius-sm);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 25px;
+  overflow: hidden;
+}
+
+.goal-tracker-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: var(--panel-action-h);
+}
+
+.goal-tracker-card-title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.goal-tracker-card-add-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--panel-action-h);
+  background: var(--surface-control);
+  color: var(--text-primary);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  line-height: 1;
+  padding: 4px 6px;
+  border: 2px solid #d8d8d8;
+}
+
+.goal-tracker-card-groups {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  align-content: start;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.goal-tracker-card-group {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 4px;
+  align-content: start;
+  min-height: 0;
+}
+
+.goal-tracker-card-group-scrollable {
+  overflow: hidden;
+}
+
+.goal-tracker-card-group-title {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.goal-tracker-card-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 4px;
+  align-content: start;
+  justify-items: start;
+  min-height: 0;
+}
+
+.goal-tracker-card-list-scrollable {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.goal-tracker-card-item {
+  width: 100%;
+  max-inline-size: 100%;
+}
+
+.goal-tracker-card-item-content {
+  display: grid;
+  grid-template-columns: var(--goal-thumb-size) minmax(0, 1fr);
+  column-gap: var(--goal-item-column-gap);
+  justify-self: stretch;
+  inline-size: 100%;
+  align-items: start;
+}
+
+.goal-tracker-card-item-featured .goal-tracker-card-progress-fill {
+  background: linear-gradient(90deg, #d5e45d 0%, #86be48 100%);
+}
+
+.goal-tracker-card-thumb {
+  width: var(--goal-thumb-size);
+  height: var(--goal-thumb-size);
+  background: linear-gradient(135deg, #e0e0e0 0%, #cfcfcf 100%);
+}
+
+.goal-tracker-card-body {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title amount"
+    "progress progress"
+    "support support";
+  column-gap: 6px;
+  row-gap: 2px;
+  align-items: center;
+}
+
+.goal-tracker-card-item-title {
+  grid-area: title;
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #4c4c4c;
+  min-width: 0;
+}
+
+.goal-tracker-card-amount {
+  grid-area: amount;
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  line-height: 1;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.goal-tracker-card-amount strong {
+  font-size: var(--fs-small);
+  color: #3e3e3e;
+  line-height: 1;
+}
+
+.goal-tracker-card-progress-track {
+  grid-area: progress;
+  position: relative;
+  height: 10px;
+  background: #e7e7e7;
+  overflow: hidden;
+}
+
+.goal-tracker-card-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ecb24f 0%, #d9933f 100%);
+}
+
+.goal-tracker-card-support {
+  grid-area: support;
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.1;
+  color: var(--text-secondary);
+}
+
+@media (width >= 701px) {
+  .goal-tracker-card-group-scrollable {
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .goal-tracker-card-list-scrollable {
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    align-content: stretch;
+    height: 100%;
+  }
+
+  .goal-tracker-card-list-scrollable .goal-tracker-card-item {
+    min-height: 0;
+  }
+
+  .goal-tracker-card-list-scrollable .goal-tracker-card-item-content {
+    height: 100%;
+    align-items: center;
+  }
+}

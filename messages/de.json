@@ -1,0 +1,360 @@
+{
+  "aria": {
+    "language": "Sprachauswahl",
+    "sidebar": "Seitenleiste",
+    "mainNav": "Hauptnavigation"
+  },
+  "languageButtons": {
+    "EN": "EN",
+    "PT": "PT",
+    "DE": "DE"
+  },
+  "skipLink": "Zum Hauptinhalt springen",
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "accounts": "Konten",
+    "transactions": {
+      "title": "Transaktionen",
+      "history": "Verlauf",
+      "integration": "Integration",
+      "reports": "Berichte"
+    },
+    "cashFlow": "Cashflow",
+    "budget": "Budget",
+    "investments": "Investitionen",
+    "learningCenter": "Lernzentrum",
+    "support": "Support",
+    "upgrade": {
+      "title": "Upgrade auf Pro",
+      "subtitle": "Schalte erweiterte Analysen und priorisierten Support frei.",
+      "cta": "Jetzt upgraden"
+    }
+  },
+  "components": {
+    "sidebar": "Sidebar",
+    "top": "Kopfbereich",
+    "cardPrimary": "Hauptkarte",
+    "cardVertical": "VertikaleKarte",
+    "cardRightTop": "RechtsObenKarte",
+    "cardMediumLeft": "MittelLinksKarte",
+    "cardMediumRight": "MittelRechtsKarte",
+    "cardLarge1": "GrosseKarte1",
+    "cardLarge2": "GrosseKarte2",
+    "cardLarge3": "GrosseKarte3",
+    "cardRightBottom": "RechtsUntenKarte",
+    "cardPrimaryGroup": "HauptGruppe"
+  },
+  "content": {
+    "title": "Finanzdashboard",
+    "subtitle": "Konsolidierte Ansicht der wichtigsten Kennzahlen dieses Monats.",
+    "cardPrimary": "Monatliche Einnahmen",
+    "cardVertical": "Taglicher Saldo",
+    "cardRightTop": "Kennzahlen",
+    "cardMediumLeft": "Fixkosten",
+    "cardMediumRight": "Variable Ausgaben",
+    "cardLarge1": "Sparziel",
+    "cardLarge2": "Investitionen",
+    "cardLarge3": "Cashflow",
+    "cardRightBottom": "Quartalsprognose"
+  },
+  "chart": {
+    "total": "$12,450",
+    "subtitle": "Saldo-Ubersicht",
+    "rangeLabel": "7 T",
+    "legend": {
+      "savings": "Ersparnisse",
+      "income": "Einnahmen",
+      "expenses": "Ausgaben"
+    },
+    "days": [
+      "So",
+      "Mo",
+      "Di",
+      "Mi",
+      "Do",
+      "Fr",
+      "Sa"
+    ],
+    "tooltipDate": "Mittwoch, 7 Jan 2025",
+    "aria": {
+      "chart": "Saldo-Diagramm",
+      "range": "Zeitraum auswahlen",
+      "controls": "Diagrammoptionen",
+      "legend": "Diagrammlegende"
+    }
+  },
+  "search": {
+    "aria": "Hauptsuche",
+    "label": "Suchfeld",
+    "placeholder": "Suchen..."
+  },
+  "topBar": {
+    "addWidget": "Widget hinzufuegen",
+    "user": {
+      "name": "Michael Johnson",
+      "email": "m.johnson@fince.com"
+    },
+    "aria": {
+      "tools": "Obere Werkzeugleiste",
+      "actions": "Schnellaktionen",
+      "notifications": "Benachrichtigungen oeffnen",
+      "settings": "Einstellungen oeffnen",
+      "profile": "Benutzerprofil oeffnen",
+      "addWidget": "Neues Widget hinzufuegen"
+    }
+  },
+  "walletPanel": {
+    "title": "Meine Karte",
+    "subtitle": "Schnellzahlung",
+    "addCard": "+ Karte hinzufuegen",
+    "previewLabel": "Naechste",
+    "quickPaymentLabel": "Schnellzahlung",
+    "slides": [
+      "Privat",
+      "Geschaeft",
+      "Reise"
+    ],
+    "primaryShortcuts": [
+      "Netflix",
+      "Uber",
+      "Einkauf",
+      "Spotify",
+      "Amazon"
+    ],
+    "secondaryShortcuts": [
+      "Sofort",
+      "Rechnung",
+      "Strom",
+      "Wasser",
+      "Internet",
+      "Gas"
+    ],
+    "aria": {
+      "carousel": "Kartenkarussell",
+      "addCard": "Neue Karte hinzufuegen",
+      "prev": "Vorherige Karte",
+      "next": "Naechste Karte",
+      "primaryShortcuts": "Primaere Schnellzahlungen",
+      "secondaryShortcuts": "Sekundaere Schnellzahlungen"
+    }
+  },
+  "verticalCard": {
+    "aria": "Taegliche Uebersicht in drei Zeilen",
+    "items": [
+      {
+        "title": "Tagessaldo",
+        "subtitle": "Jetzt aktualisiert",
+        "support": "3.2% vs gestern"
+      },
+      {
+        "title": "Einnahmen",
+        "subtitle": "Heute",
+        "support": "+ 12 Buchungen"
+      },
+      {
+        "title": "Ausgaben",
+        "subtitle": "Heute",
+        "support": "4 offen"
+      }
+    ]
+  },
+  "spendingCard": {
+    "title": "Monatliches Ausgabelimit",
+    "subtitle": "Empfaengerkonten",
+    "minLabel": "$8.600",
+    "maxLabel": "$10.000",
+    "progress": 63,
+    "aria": {
+      "icon": "Limit-Symbol",
+      "slider": "Schieberegler fuer monatliches Ausgabelimit"
+    }
+  },
+  "variableCard": {
+    "title": "Variable Ausgaben",
+    "subtitle": "Verfolge Anpassungen und saisonale Kosten.",
+    "cta": "Read more",
+    "aria": {
+      "readMore": "Mehr zu variablen Ausgaben lesen"
+    }
+  },
+  "healthCard": {
+    "title": "Finanzgesundheit",
+    "subtitle": "Aktueller Score",
+    "period": "30 T",
+    "value": "$15.780",
+    "change": "+17.5% zum Vormonat",
+    "percent": 75,
+    "percentLabel": "Vom monatlichen Einkommen gespart",
+    "note": "Basierend auf aggregierten Transaktionsmetriken der letzten 30 Tage",
+    "aria": {
+      "period": "Zeitraum fuer Finanzgesundheit waehlen",
+      "gauge": "Finanzgesundheitsanzeige"
+    }
+  },
+  "costCard": {
+    "title": "Kostenanalyse",
+    "subtitle": "Ausgabenuebersicht",
+    "period": "Januar",
+    "value": "$8.450",
+    "segments": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "categories": [
+      {
+        "label": "Wohnen",
+        "percent": "18%",
+        "color": "#e09a43"
+      },
+      {
+        "label": "Schuldenzahlungen",
+        "percent": "7%",
+        "color": "#ddad47"
+      },
+      {
+        "label": "Lebensmittel",
+        "percent": "6%",
+        "color": "#d0c84c"
+      },
+      {
+        "label": "Transport",
+        "percent": "9%",
+        "color": "#b8ca54"
+      },
+      {
+        "label": "Gesundheit",
+        "percent": "11%",
+        "color": "#9ac260"
+      },
+      {
+        "label": "Investitionen",
+        "percent": "14%",
+        "color": "#7eb77a"
+      },
+      {
+        "label": "Sonstiges",
+        "percent": "35%",
+        "color": "#68a592"
+      }
+    ],
+    "aria": {
+      "period": "Monat fuer Kostenanalyse waehlen",
+      "segments": "Segmentierte Kostenverteilungsleiste",
+      "breakdown": "Kostenverteilung nach Kategorie"
+    }
+  },
+  "goalCard": {
+    "title": "Zieltracker",
+    "addCta": "+ Ziele",
+    "thisYear": {
+      "label": "Dieses Jahr",
+      "item": {
+        "title": "Reserve",
+        "current": "$7.000",
+        "total": "$10.000",
+        "progress": 70,
+        "support": "noch 4 Monate"
+      }
+    },
+    "longTerm": {
+      "label": "Langfristig",
+      "items": [
+        {
+          "title": "Reise",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "noch 3 Monate"
+        },
+        {
+          "title": "Reise",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "noch 3 Monate"
+        },
+        {
+          "title": "Reise",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "noch 3 Monate"
+        },
+        {
+          "title": "Reise",
+          "current": "$2.500",
+          "total": "$4.000",
+          "progress": 62,
+          "support": "noch 3 Monate"
+        }
+      ]
+    },
+    "aria": {
+      "add": "Neues Ziel hinzufuegen"
+    }
+  },
+  "transactionCard": {
+    "title": "Transaktionsverlauf",
+    "period": "7 T",
+    "columns": {
+      "name": "1. Name",
+      "amount": "Betrag"
+    },
+    "items": [
+      {
+        "name": "Dividend payout",
+        "date": "25 Feb 2025",
+        "amount": "+ $1.100",
+        "amountTone": "positive",
+        "status": "Abgeschlossen",
+        "statusTone": "completed"
+      },
+      {
+        "name": "corporate subscriptions",
+        "date": "25 Feb 2025",
+        "amount": "- $6.400",
+        "amountTone": "negative",
+        "status": "Offen",
+        "statusTone": "pending"
+      },
+      {
+        "name": "Investment in ETF",
+        "date": "21 Feb 2025",
+        "amount": "- $900",
+        "amountTone": "negative",
+        "status": "Abgeschlossen",
+        "statusTone": "completed"
+      },
+      {
+        "name": "Consulting services",
+        "date": "17 Feb 2025",
+        "amount": "- $2.100",
+        "amountTone": "negative",
+        "status": "Abgeschlossen",
+        "statusTone": "completed"
+      },
+      {
+        "name": "Monatsgehalt",
+        "date": "15 Feb 2025",
+        "amount": "+ $3.800",
+        "amountTone": "positive",
+        "status": "Abgeschlossen",
+        "statusTone": "completed"
+      },
+      {
+        "name": "Software-Abonnement",
+        "date": "12 Feb 2025",
+        "amount": "- $320",
+        "amountTone": "negative",
+        "status": "Offen",
+        "statusTone": "pending"
+      }
+    ],
+    "aria": {
+      "period": "Zeitraum fuer Transaktionen waehlen",
+      "list": "Liste des Transaktionsverlaufs"
+    }
+  }
+}

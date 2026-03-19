@@ -1,0 +1,268 @@
+:root {
+  --sidebar-w: clamp(180px, 18vw, 236px);
+  --gap: 10px;
+  --focus-ring-color: #0b57d0;
+  --focus-ring: 3px solid var(--focus-ring-color);
+  --focus-offset: 2px;
+  --color-white: #fff;
+  --color-gray-light: #f1f1f1;
+  --bg-page: var(--color-gray-light);
+  --bg-page-alt: var(--color-gray-light);
+  --bg-panel: var(--color-gray-light);
+  --bg-muted: var(--color-gray-light);
+  --surface-card: var(--color-white);
+  --surface-control: var(--color-white);
+  --surface-control-alt: var(--color-white);
+  --surface-control-soft: var(--color-white);
+  --surface-inverse: var(--color-white);
+  --surface-line: var(--color-gray-light);
+  --wallet-carousel-nav-w: 24px;
+  --wallet-carousel-preview-w: 72px;
+  --dashboard-card-padding: 10px;
+  --radius-sm: 4px;
+  --panel-action-h: 24px;
+  --panel-icon-btn-size: 28px;
+  --cost-breakdown-row-gap: 13px;
+  --fs-h1: clamp(1.35rem, 2.3vw, 2.2rem);
+  --fs-h2: 1.0625rem;
+  --fs-h3: 0.9375rem;
+  --fs-p: 0.8125rem;
+  --fs-small: 0.75rem;
+  --text-primary: #111;
+  --text-inverse: #fff;
+  --text-secondary: #2f2f2f;
+  --text-muted: #3c3c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: var(--fs-p);
+  line-height: 1.45;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  font-size: var(--fs-p);
+  line-height: 1.45;
+}
+
+small {
+  font-size: var(--fs-small);
+  line-height: 1.4;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+fieldset {
+  border: none;
+}
+
+:where(a, button, summary, input, select, textarea):focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.layout-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  align-items: stretch;
+  height: 100dvh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.layout-content {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: 0.68fr 2.2fr 2.2fr 1.55fr 2.35fr 2.35fr;
+  grid-template-areas:
+    "top top top top top top top top"
+    "primary primary primary primary primary primary wallet wallet"
+    "primary primary primary primary primary primary wallet wallet"
+    "spending spending spending variable variable variable wallet wallet"
+    "cost cost health health goal goal transactions transactions"
+    "cost cost health health goal goal transactions transactions";
+  gap: var(--gap);
+  padding: var(--gap);
+  background: var(--bg-page-alt);
+  height: 100%;
+  min-height: 0;
+  align-content: stretch;
+  overflow: auto;
+  position: relative;
+  scrollbar-gutter: stable;
+}
+
+.dashboard-sidebar-slot {
+  min-height: 0;
+  padding: var(--gap) 0 var(--gap) var(--gap);
+}
+
+.dashboard-slot {
+  min-height: 0;
+}
+
+.dashboard-slot > * {
+  min-height: 0;
+}
+
+.dashboard-top-slot {
+  grid-area: top;
+}
+
+.dashboard-primary-group-slot {
+  grid-area: primary;
+}
+
+.dashboard-wallet-slot {
+  grid-area: wallet;
+}
+
+.dashboard-spending-slot {
+  grid-area: spending;
+}
+
+.dashboard-variable-slot {
+  grid-area: variable;
+}
+
+.dashboard-cost-slot {
+  grid-area: cost;
+}
+
+.dashboard-health-slot {
+  grid-area: health;
+}
+
+.dashboard-goal-slot {
+  grid-area: goal;
+}
+
+.dashboard-transactions-slot {
+  grid-area: transactions;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -40px;
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 20;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.upload-area {
+  background-color: #ff9ecf !important;
+  background-image: none !important;
+}
+
+@media (width <= 700px) {
+  html,
+  body {
+    overflow: auto;
+  }
+
+  .layout-shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .dashboard-sidebar-slot {
+    display: none;
+  }
+
+  .layout-content {
+    grid-template:
+      "top" auto
+      "primary" 1.45fr
+      "wallet" 1.4fr
+      "spending" 1.05fr
+      "variable" 1.05fr
+      "cost" 1fr
+      "health" 1fr
+      "goal" 1.3fr
+      "transactions" 1.55fr / 1fr;
+    gap: 8px;
+    padding: 10px;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+}
+
+@media (width >= 701px) and (width <= 1100px) {
+  .layout-shell {
+    grid-template-columns: minmax(180px, 208px) minmax(0, 1fr);
+  }
+
+  .layout-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows:
+      auto
+      minmax(0, 1.2fr)
+      minmax(0, 1.45fr)
+      minmax(0, 1.1fr)
+      minmax(0, 1.1fr)
+      minmax(0, 1.25fr)
+      minmax(0, 1.25fr);
+    grid-template-areas:
+      "top top"
+      "primary primary"
+      "wallet wallet"
+      "spending variable"
+      "cost health"
+      "goal transactions"
+      "goal transactions";
+  }
+}
