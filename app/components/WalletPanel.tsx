@@ -23,6 +23,33 @@ const walletSlideMediaByLabel: Record<
 
 const supportedWalletSlides = new Set(Object.keys(walletSlideMediaByLabel));
 
+const walletSecondaryPersonaShortcuts = [
+  {
+    name: "George",
+    image: "/images/personas/George.png",
+  },
+  {
+    name: "Denise",
+    image: "/images/personas/Denise.png",
+  },
+  {
+    name: "Emilia",
+    image: "/images/personas/Emilia.png",
+  },
+  {
+    name: "Leo",
+    image: "/images/personas/Leo.png",
+  },
+  {
+    name: "Paul",
+    image: "/images/personas/Paul.png",
+  },
+  {
+    name: "Ligia",
+    image: "/images/personas/Ligia.png",
+  },
+];
+
 export function WalletPanel({ copy }: WalletPanelProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef({
@@ -153,20 +180,21 @@ export function WalletPanel({ copy }: WalletPanelProps) {
           data-slot="wallet-shortcuts-secondary"
           aria-label={copy.aria.secondaryShortcuts}
         >
-          {copy.secondaryShortcuts.map((item) => (
-            <li key={item} data-slot="wallet-shortcut-entry">
+          {walletSecondaryPersonaShortcuts.map((item) => (
+            <li key={item.name} data-slot="wallet-shortcut-entry">
               <button
                 type="button"
                 className={`${styles["wallet-shortcut-item"]} ${styles["wallet-shortcut-item-secondary"]}`}
                 data-slot="wallet-shortcut-item-secondary"
               >
                 <span
-                  className={`${styles["wallet-shortcut-image"]} ${styles["wallet-shortcut-image-secondary"]} upload-area`}
+                  className={`${styles["wallet-shortcut-image"]} ${styles["wallet-shortcut-image-secondary"]}`}
                   data-slot="wallet-shortcut-image-secondary"
                   aria-hidden="true"
+                  style={{ backgroundImage: `url(${item.image})` }}
                 />
                 <span className={styles["wallet-shortcut-text"]} data-slot="wallet-shortcut-text">
-                  {item}
+                  {item.name}
                 </span>
               </button>
             </li>
