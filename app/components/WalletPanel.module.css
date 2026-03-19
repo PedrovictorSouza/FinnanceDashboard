@@ -207,6 +207,14 @@
   min-width: 52px;
 }
 
+.wallet-shortcut-item-secondary .wallet-shortcut-text {
+  font-weight: 400;
+}
+
+.wallet-shortcut-item-primary .wallet-shortcut-text {
+  font-weight: 400;
+}
+
 .wallet-shortcut-image {
   display: block;
   align-self: end;
