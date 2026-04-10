@@ -1,4 +1,8 @@
 .balance-chart {
+  --chart-savings-color: #f3a712;
+  --chart-income-color: #cfc758;
+  --chart-expenses-color: #afd988;
+
   height: 100%;
   min-height: 0;
   background: var(--surface-card);
@@ -152,15 +156,15 @@
 }
 
 .chart-bar-savings {
-  fill: #f3a712;
+  fill: var(--chart-savings-color);
 }
 
 .chart-bar-income {
-  fill: #29335c;
+  fill: var(--chart-income-color);
 }
 
 .chart-bar-expenses {
-  fill: #534d41;
+  fill: var(--chart-expenses-color);
 }
 
 .dot {
@@ -172,15 +176,15 @@
 }
 
 .savings {
-  background: #f3a712;
+  background: var(--chart-savings-color);
 }
 
 .income {
-  background: #cfc758;
+  background: var(--chart-income-color);
 }
 
 .expenses {
-  background: #afd988;
+  background: var(--chart-expenses-color);
 }
 
 .chart-tooltip {

@@ -53,7 +53,7 @@
   gap: 5px;
   font-size: var(--fs-small);
   line-height: 1.05;
-  color: var(--text-secondary);
+  color: #5f8f2d;
 }
 
 .vertical-kpi-icon {
