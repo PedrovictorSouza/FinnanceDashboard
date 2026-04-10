@@ -42,7 +42,9 @@ export function BalanceChart({ copy, locale }: BalanceChartProps) {
             data-slot="balance-chart-controls-button"
             aria-label={copy.aria.controls}
           >
-            <span aria-hidden="true">|||</span>
+            <span className={styles.icon} aria-hidden="true">
+              <img src="/icons/ui/arrow.svg" alt="" />
+            </span>
           </button>
         </div>
 

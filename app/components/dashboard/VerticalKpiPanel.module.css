@@ -57,11 +57,18 @@
 }
 
 .vertical-kpi-icon {
-  width: 10px;
-  height: 10px;
-  background: var(--bg-muted);
-  border-radius: 2px;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
+}
+
+.vertical-kpi-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .vertical-kpi-item {

@@ -8,20 +8,18 @@ type WalletPanelProps = {
   copy: DashboardWalletPanelViewModel;
 };
 
-const walletSlideMediaByLabel: Record<
-  string,
-  { image: string; opacity?: number }
-> = {
-  Pessoal: {
+const walletSlideMediaByIndex: Array<
+  { image: string; opacity?: number } | null
+> = [
+  {
     image: "/images/cards-container/credit-card-yellow.png",
   },
-  Empresa: {
+  {
     image: "/images/cards-container/card-black-white.png",
     opacity: 0.5,
   },
-};
-
-const supportedWalletSlides = new Set(Object.keys(walletSlideMediaByLabel));
+  null,
+];
 
 const walletSecondaryPersonaShortcuts = [
   {
@@ -120,45 +118,49 @@ export function WalletPanel({ copy }: WalletPanelProps) {
             <span className={styles["wallet-add-btn-full"]}>{copy.addCard}</span>
             <span className={styles["wallet-add-btn-short"]}>Add cartão</span>
           </button>
+
+          <section
+            className={styles["wallet-carousel"]}
+            data-slot="wallet-carousel"
+            aria-label={copy.aria.carousel}
+          >
+            <div
+              ref={carouselRef}
+              className={styles["wallet-carousel-main"]}
+              data-slot="wallet-carousel-main"
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={handlePointerUp}
+            >
+              {copy.slides.map((slide, index) => {
+                const slideMedia = walletSlideMediaByIndex[index] ?? null;
+
+                return (
+                  <section
+                    key={`${slide}-${index}`}
+                    className={styles["wallet-slide"]}
+                    data-slot="wallet-slide"
+                  >
+                    <p data-slot="wallet-slide-label">{slide}</p>
+                    {slideMedia ? (
+                      <span
+                        className={styles["wallet-slide-art"]}
+                        data-slot="wallet-slide-art"
+                        aria-hidden="true"
+                        style={{
+                          backgroundImage: `url(${slideMedia.image})`,
+                          opacity: slideMedia.opacity ?? 1,
+                        }}
+                      />
+                    ) : null}
+                  </section>
+                );
+              })}
+            </div>
+          </section>
         </div>
       </header>
-
-      <section
-        className={styles["wallet-carousel"]}
-        data-slot="wallet-carousel"
-        aria-label={copy.aria.carousel}
-      >
-        <div
-          ref={carouselRef}
-          className={styles["wallet-carousel-main"]}
-          data-slot="wallet-carousel-main"
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-        >
-          {copy.slides.filter((slide) => supportedWalletSlides.has(slide)).map((slide) => (
-            <section
-              key={slide}
-              className={styles["wallet-slide"]}
-              data-slot="wallet-slide"
-            >
-              <p data-slot="wallet-slide-label">{slide}</p>
-              {walletSlideMediaByLabel[slide] ? (
-                <span
-                  className={styles["wallet-slide-art"]}
-                  data-slot="wallet-slide-art"
-                  aria-hidden="true"
-                  style={{
-                    backgroundImage: `url(${walletSlideMediaByLabel[slide].image})`,
-                    opacity: walletSlideMediaByLabel[slide].opacity ?? 1,
-                  }}
-                />
-              ) : null}
-            </section>
-          ))}
-        </div>
-      </section>
 
       <ul
         className={`${styles["wallet-shortcuts"]} ${styles["wallet-shortcuts-primary"]}`}

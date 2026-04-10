@@ -33,7 +33,12 @@ export function DashboardSidebar({ copy, aria, componentId }: DashboardSidebarPr
       <nav aria-label={aria.mainNav} className={styles["sidebar-nav"]} data-slot="dashboard-sidebar-nav">
         <ul className={styles["sidebar-menu"]} data-slot="dashboard-sidebar-menu">
           <li>
-            <a className={styles["sidebar-item"]} data-slot="dashboard-sidebar-item" href="#resumo">
+            <a
+              className={`${styles["sidebar-item"]} ${styles["sidebar-item-active"]}`}
+              data-slot="dashboard-sidebar-item"
+              href="#resumo"
+              aria-current="page"
+            >
               <SidebarIconFrame
                 className={styles["menu-icon"]}
                 data-slot="dashboard-sidebar-icon"
@@ -70,37 +75,16 @@ export function DashboardSidebar({ copy, aria, componentId }: DashboardSidebarPr
               <ul className={styles["sidebar-submenu"]} data-slot="dashboard-sidebar-submenu">
                 <li>
                   <a className={styles["sidebar-subitem"]} data-slot="dashboard-sidebar-subitem" href="#">
-                    <SidebarIconFrame
-                      className={styles["menu-icon"]}
-                      size="sub"
-                      data-slot="dashboard-sidebar-subicon"
-                      aria-hidden="true"
-                      src={sidebarIcons.transactions}
-                    />
                     <span>{copy.transactions.history}</span>
                   </a>
                 </li>
                 <li>
                   <a className={styles["sidebar-subitem"]} data-slot="dashboard-sidebar-subitem" href="#">
-                    <SidebarIconFrame
-                      className={styles["menu-icon"]}
-                      size="sub"
-                      data-slot="dashboard-sidebar-subicon"
-                      aria-hidden="true"
-                      src={sidebarIcons.transactions}
-                    />
                     <span>{copy.transactions.integration}</span>
                   </a>
                 </li>
                 <li>
                   <a className={styles["sidebar-subitem"]} data-slot="dashboard-sidebar-subitem" href="#">
-                    <SidebarIconFrame
-                      className={styles["menu-icon"]}
-                      size="sub"
-                      data-slot="dashboard-sidebar-subicon"
-                      aria-hidden="true"
-                      src={sidebarIcons.transactions}
-                    />
                     <span>{copy.transactions.reports}</span>
                   </a>
                 </li>
@@ -171,7 +155,6 @@ export function DashboardSidebar({ copy, aria, componentId }: DashboardSidebarPr
         aria-label={copy.upgrade.title}
       >
         <h3 className={styles["upgrade-title"]} data-slot="dashboard-sidebar-upgrade-title">
-          <SidebarIconFrame className={styles["menu-icon"]} data-slot="dashboard-sidebar-icon" aria-hidden="true" />
           <span>{copy.upgrade.title}</span>
         </h3>
         <p>{copy.upgrade.subtitle}</p>

@@ -45,6 +45,7 @@ const margin = { top: 6, right: 8, bottom: 40, left: 34 };
 const amountScaleFactor = 40;
 const barCornerRadius = 3;
 const stackGap = 5;
+const yTickStep = 10;
 
 const colors = {
   savings: "#F3A712",
@@ -95,8 +96,10 @@ export function BalanceChartCanvas({
     max(data, (datum) => toChartUnits(datum.amount.income + datum.amount.savings)) ?? 20;
   const lowestNegative =
     min(data, (datum) => -toChartUnits(datum.amount.expenses)) ?? -5;
-  const domainTop = Math.max(30, highestPositive + 8);
-  const domainBottom = Math.min(-10, lowestNegative - 4);
+  const domainTop =
+    Math.ceil(Math.max(30, highestPositive + 8) / yTickStep) * yTickStep;
+  const domainBottom =
+    Math.floor(Math.min(-10, lowestNegative - 4) / yTickStep) * yTickStep;
 
   const xScale = scaleBand<string>({
     domain: data.map((datum) => datum.day),
@@ -107,14 +110,11 @@ export function BalanceChartCanvas({
   const yScale = scaleLinear<number>({
     domain: [domainBottom, domainTop],
     range: [yMax, 0],
-    nice: true,
   });
 
-  const ticks = [domainBottom, -10, 0, 10, 20, 30].filter(
-    (tick, index, values) =>
-      tick >= domainBottom &&
-      tick <= domainTop &&
-      values.indexOf(tick) === index,
+  const ticks = Array.from(
+    { length: Math.round((domainTop - domainBottom) / yTickStep) + 1 },
+    (_, index) => domainBottom + index * yTickStep,
   );
 
   return (

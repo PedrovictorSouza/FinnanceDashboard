@@ -9,7 +9,9 @@ type GoalTrackerCardProps = {
   componentId: string;
 };
 
-type GoalItem = DashboardGoalItemViewModel;
+type GoalItem = DashboardGoalItemViewModel & {
+  image?: string;
+};
 
 type GoalListItemProps = {
   item: GoalItem;
@@ -41,9 +43,10 @@ function GoalListItem({ item, goalId, featured = false }: GoalListItemProps) {
         aria-labelledby={titleId}
       >
         <div
-          className={`${styles["goal-tracker-card-thumb"]} upload-area`}
+          className={styles["goal-tracker-card-thumb"]}
           data-slot="goal-tracker-card-thumb"
           aria-hidden="true"
+          style={item.image ? { backgroundImage: `url(${item.image})` } : undefined}
         />
 
         <div className={styles["goal-tracker-card-body"]} data-slot="goal-tracker-card-body">

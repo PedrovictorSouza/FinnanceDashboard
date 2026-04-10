@@ -5,14 +5,14 @@
   padding: var(--dashboard-card-padding);
   border-radius: var(--radius-sm);
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
   grid-template-areas:
-    "header header"
-    "value segments"
-    "breakdown breakdown";
+    "header"
+    "value"
+    "segments"
+    "breakdown";
   row-gap: 16px;
-  column-gap: 8px;
   align-content: start;
 }
 
@@ -66,7 +66,6 @@
   font-size: var(--fs-h1);
   line-height: 1;
   font-weight: 700;
-  align-self: center;
 }
 
 .segments {
@@ -76,34 +75,13 @@
   align-items: center;
   min-width: 0;
   width: 100%;
-  align-self: center;
 }
 
 .segment {
   min-width: 0;
   height: 16px;
   border-radius: 4px;
-  background: linear-gradient(135deg, #e2a04a 0%, #d6862e 100%);
-}
-
-.segment:nth-child(2) {
-  background: linear-gradient(135deg, #e4b54f 0%, #dca43f 100%);
-}
-
-.segment:nth-child(3) {
-  background: linear-gradient(135deg, #d3d053 0%, #c1bf47 100%);
-}
-
-.segment:nth-child(4) {
-  background: linear-gradient(135deg, #bfd255 0%, #a8bc4f 100%);
-}
-
-.segment:nth-child(5) {
-  background: linear-gradient(135deg, #a3c957 0%, #86b548 100%);
-}
-
-.segment:nth-child(6) {
-  background: #e4e4e4;
+  flex-basis: 0;
 }
 
 .breakdown {
@@ -113,22 +91,27 @@
   list-style: none;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: flex-start;
-  gap: 8px;
+  gap: 7px;
   min-height: 0;
 }
 
 .breakdown li {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  max-inline-size: 100%;
+  width: 100%;
   font-size: var(--fs-small);
   color: var(--text-secondary);
   line-height: 1.1;
 }
 
 .breakdown strong {
+  margin-left: auto;
+  flex: 0 0 auto;
+  text-align: right;
   color: #343434;
   font-weight: 700;
 }
@@ -199,18 +182,7 @@
 
 @media (width <= 700px) {
   .card {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto minmax(0, 1fr);
-    grid-template-areas:
-      "header"
-      "value"
-      "segments"
-      "breakdown";
     row-gap: 12px;
-  }
-
-  .segments {
-    justify-content: flex-start;
   }
 
   .breakdown {

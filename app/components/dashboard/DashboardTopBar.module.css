@@ -1,7 +1,6 @@
 .top-bar {
   width: 100%;
   min-height: 0;
-  background: var(--bg-panel);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, auto);
   align-items: center;
@@ -10,7 +9,6 @@
 
 .search-form {
   width: 100%;
-  max-width: 560px;
   min-width: 0;
 }
 
@@ -106,54 +104,40 @@
 }
 
 .top-icon-bell {
-  width: 16px;
-  height: 16px;
-  background: var(--text-primary);
-  clip-path: polygon(50% 6%, 70% 16%, 76% 38%, 76% 62%, 86% 73%, 14% 73%, 24% 62%, 24% 38%, 30% 16%);
-  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top-icon-bell::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 2px;
-  width: 5px;
-  height: 2px;
-  transform: translateX(-50%);
-  background: var(--text-primary);
-  border-radius: 2px;
+  content: none;
 }
 
 .top-icon-bell::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 1px;
-  width: 5px;
-  height: 5px;
-  transform: translateX(-50%);
-  background: var(--text-primary);
-  border-radius: 999px;
+  content: none;
+}
+
+.top-icon-bell img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .top-icon-gear {
-  width: 16px;
-  height: 16px;
-  background:
-    radial-gradient(
-      circle at center,
-      var(--surface-control-soft) 0 3px,
-      var(--text-primary) 3px 5px,
-      transparent 5px
-    ),
-    repeating-conic-gradient(from 0deg, var(--text-primary) 0deg 16deg, transparent 16deg 45deg);
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top-icon-gear::before,
 .top-icon-gear::after {
   content: none;
+}
+
+.top-icon-gear img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .top-user-btn {
@@ -169,8 +153,18 @@
   width: 18px;
   height: 18px;
   border-radius: 999px;
-  background: radial-gradient(circle at 65% 35%, #f8d9b4 0%, #c99b6c 45%, #756048 100%);
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 auto;
+}
+
+.top-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .top-user-copy {

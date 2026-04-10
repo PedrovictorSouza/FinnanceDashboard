@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
 import { DevAlignmentGuide } from "./components/DevAlignmentGuide";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,7 +43,7 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={outfit.variable}>
       <body>
         {children}
         {process.env.NODE_ENV === "development" ? <DevAlignmentGuide /> : null}

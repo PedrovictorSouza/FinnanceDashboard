@@ -46,7 +46,9 @@ export function SpendingLimitCard({ copy, componentId }: SpendingLimitCardProps)
             data-slot="spending-limit-card-icon-button"
             aria-label={copy.aria.icon}
           >
-            <span className={`${styles.icon} upload-area`} data-slot="spending-limit-card-icon" aria-hidden="true" />
+            <span className={`${styles.icon} upload-area`} data-slot="spending-limit-card-icon" aria-hidden="true">
+              <img src="/icons/ui/cronometer.svg" alt="" />
+            </span>
           </button>
         </header>
 

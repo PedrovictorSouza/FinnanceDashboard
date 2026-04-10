@@ -107,15 +107,20 @@ export function FinancialHealthCard({ copy, componentId }: FinancialHealthCardPr
                 <stop offset="100%" stopColor="#29335c" />
               </linearGradient>
             </defs>
+            <foreignObject x="8" y="54" width="104" height="16">
+              <div
+                className={styles["gauge-center"]}
+                data-slot="financial-health-card-gauge-center"
+              >
+                <p className={styles["percent-label"]} data-slot="financial-health-card-percent-label">
+                  {copy.percentLabel}
+                </p>
+              </div>
+            </foreignObject>
           </svg>
           <h1 className={styles.percent} data-slot="financial-health-card-percent">
             {displayedPercent}%
           </h1>
-          <div className={styles["gauge-center"]} data-slot="financial-health-card-gauge-center">
-            <p className={styles["percent-label"]} data-slot="financial-health-card-percent-label">
-              {copy.percentLabel}
-            </p>
-          </div>
         </div>
 
         <p className={styles.note} data-slot="financial-health-card-note">

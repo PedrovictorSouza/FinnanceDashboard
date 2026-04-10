@@ -68,9 +68,9 @@
   padding: 0;
   list-style: none;
   display: grid;
-  align-content: start;
+  align-content: space-between;
   grid-auto-rows: max-content;
-  gap: 8px;
+  gap: 14px;
   min-height: 0;
   overflow: hidden auto;
   scrollbar-gutter: stable;

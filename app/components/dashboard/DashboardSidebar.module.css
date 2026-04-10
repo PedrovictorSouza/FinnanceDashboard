@@ -1,11 +1,9 @@
 .sidebar {
   position: sticky;
   top: var(--gap);
-  height: calc(100dvh - (var(--gap) * 2));
   min-height: 0;
   background: var(--color-twilight-indigo);
-  padding: 14px 12px 20px;
-  border-radius: var(--radius-sm);
+  padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -97,7 +95,7 @@
 }
 
 .sidebar-subitem {
-  margin-left: 16px;
+  margin-left: 25px;
   padding: 5px 8px;
   display: flex;
   align-items: center;
@@ -166,6 +164,7 @@
   display: grid;
   gap: 8px;
   flex: 0 0 auto;
+  color: white;
 }
 
 .upgrade-title {

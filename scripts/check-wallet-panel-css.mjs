@@ -37,7 +37,7 @@ function assertNotContains(haystack, needle, context) {
 
 const walletPanelRule = extractFirstRule(css, ".wallet-panel");
 
-assertContains(walletPanelRule, "gap: 17px;", "WalletPanel source rule");
+assertContains(walletPanelRule, "gap: 0;", "WalletPanel source rule");
 assertNotContains(walletPanelRule, "gap: 8px;", "WalletPanel source rule");
 
 console.log("WalletPanel CSS regression check passed.");

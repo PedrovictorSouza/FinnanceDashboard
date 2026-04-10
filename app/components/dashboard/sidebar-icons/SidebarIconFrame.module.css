@@ -3,18 +3,17 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: var(--radius-sm);
-  background: var(--bg-muted);
+  line-height: 0;
 }
 
 .main {
-  width: 12px;
+  width: 15.4px;
+  height: 15.4px;
 }
 
 .sub {
-  width: 10px;
+  width: 13.2px;
+  height: 13.2px;
 }
 
 .frame img,
@@ -23,6 +22,6 @@
   height: 100%;
   display: block;
   flex: 0 0 auto;
-  border-radius: inherit;
   object-fit: contain;
 }
+

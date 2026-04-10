@@ -279,7 +279,8 @@
         "current": "$7,000",
         "total": "$10,000",
         "progress": 70,
-        "support": "left to save 4 months"
+        "support": "left to save 4 months",
+        "image": "/images/goal-tracker/reserve.png"
       }
     },
     "longTerm": {
@@ -290,28 +291,32 @@
           "current": "$2,500",
           "total": "$4,000",
           "progress": 62,
-          "support": "left to save 3 months"
+          "support": "left to save 3 months",
+          "image": "/images/goal-tracker/bag.png"
+        },
+        {
+          "title": "Car",
+          "current": "$4,300",
+          "total": "$8,000",
+          "progress": 54,
+          "support": "left to save 8 months",
+          "image": "/images/goal-tracker/car.png"
+        },
+        {
+          "title": "Home",
+          "current": "$12,000",
+          "total": "$20,000",
+          "progress": 60,
+          "support": "left to save 12 months",
+          "image": "/images/goal-tracker/house.png"
         },
         {
           "title": "Travel",
           "current": "$2,500",
           "total": "$4,000",
           "progress": 62,
-          "support": "left to save 3 months"
-        },
-        {
-          "title": "Travel",
-          "current": "$2,500",
-          "total": "$4,000",
-          "progress": 62,
-          "support": "left to save 3 months"
-        },
-        {
-          "title": "Travel",
-          "current": "$2,500",
-          "total": "$4,000",
-          "progress": 62,
-          "support": "left to save 3 months"
+          "support": "left to save 3 months",
+          "image": "/images/goal-tracker/bag.png"
         }
       ]
     },

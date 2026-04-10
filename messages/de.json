@@ -279,7 +279,8 @@
         "current": "$7.000",
         "total": "$10.000",
         "progress": 70,
-        "support": "noch 4 Monate"
+        "support": "noch 4 Monate",
+        "image": "/images/goal-tracker/reserve.png"
       }
     },
     "longTerm": {
@@ -290,28 +291,32 @@
           "current": "$2.500",
           "total": "$4.000",
           "progress": 62,
-          "support": "noch 3 Monate"
+          "support": "noch 3 Monate",
+          "image": "/images/goal-tracker/bag.png"
+        },
+        {
+          "title": "Auto",
+          "current": "$4.300",
+          "total": "$8.000",
+          "progress": 54,
+          "support": "noch 8 Monate",
+          "image": "/images/goal-tracker/car.png"
+        },
+        {
+          "title": "Wohnen",
+          "current": "$12.000",
+          "total": "$20.000",
+          "progress": 60,
+          "support": "noch 12 Monate",
+          "image": "/images/goal-tracker/house.png"
         },
         {
           "title": "Reise",
           "current": "$2.500",
           "total": "$4.000",
           "progress": 62,
-          "support": "noch 3 Monate"
-        },
-        {
-          "title": "Reise",
-          "current": "$2.500",
-          "total": "$4.000",
-          "progress": 62,
-          "support": "noch 3 Monate"
-        },
-        {
-          "title": "Reise",
-          "current": "$2.500",
-          "total": "$4.000",
-          "progress": 62,
-          "support": "noch 3 Monate"
+          "support": "noch 3 Monate",
+          "image": "/images/goal-tracker/bag.png"
         }
       ]
     },

@@ -9,6 +9,12 @@ type CostAnalysisCardProps = {
 };
 
 export function CostAnalysisCard({ copy, componentId }: CostAnalysisCardProps) {
+  const categorySegments = copy.categories.map((item, index) => ({
+    color: item.color,
+    value: Number(item.percent.replace(/[^\d.]/g, "")) || 0,
+    index,
+  }));
+
   return (
     <section
       id="metas"
@@ -47,12 +53,16 @@ export function CostAnalysisCard({ copy, componentId }: CostAnalysisCardProps) {
         </h1>
 
         <div className={styles.segments} data-slot="cost-analysis-card-segments" aria-label={copy.aria.segments}>
-          {copy.segments.map((segment, index) => (
+          {categorySegments.map((segment) => (
             <span
-              key={`${segment}-${index}`}
+              key={`${segment.color}-${segment.index}`}
               className={styles.segment}
               data-slot="cost-analysis-card-segment"
-              style={{ flexGrow: segment, "--segment-index": `${index}` } as CSSProperties}
+              style={{
+                flexGrow: segment.value,
+                background: segment.color,
+                "--segment-index": `${segment.index}`,
+              } as CSSProperties}
             />
           ))}
         </div>

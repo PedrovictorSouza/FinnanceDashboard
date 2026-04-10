@@ -72,7 +72,9 @@ export function DashboardTopBar({
               className={`${styles["top-icon"]} ${styles["top-icon-bell"]}`}
               data-slot="dashboard-notifications-icon"
               aria-hidden="true"
-            />
+            >
+              <img src="/icons/ui/bell.svg" alt="" />
+            </span>
           </button>
 
           <button
@@ -85,7 +87,9 @@ export function DashboardTopBar({
               className={`${styles["top-icon"]} ${styles["top-icon-gear"]}`}
               data-slot="dashboard-settings-icon"
               aria-hidden="true"
-            />
+            >
+              <img src="/icons/ui/gear.svg" alt="" />
+            </span>
           </button>
 
           <button
@@ -98,7 +102,9 @@ export function DashboardTopBar({
               className={`${styles["top-user-avatar"]} upload-area`}
               data-slot="dashboard-profile-avatar"
               aria-hidden="true"
-            />
+            >
+              <img src="/images/personas/michael.png" alt="" />
+            </span>
             <span className={styles["top-user-copy"]} data-slot="dashboard-profile-copy">
               <span className={styles["top-user-name"]} data-slot="dashboard-profile-name">
                 {topBar.user.name}

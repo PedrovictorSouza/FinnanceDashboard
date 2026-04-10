@@ -32,7 +32,9 @@ export function VerticalKpiPanel({ copy, componentId }: VerticalKpiPanelProps) {
               {item.subtitle}
             </h1>
             <p className={styles["vertical-kpi-meta"]} data-slot="vertical-kpi-meta">
-              <span className={styles["vertical-kpi-icon"]} data-slot="vertical-kpi-icon" aria-hidden="true" />
+              <span className={styles["vertical-kpi-icon"]} data-slot="vertical-kpi-icon" aria-hidden="true">
+                <img src="/icons/ui/arrow.svg" alt="" />
+              </span>
               <span>{item.support}</span>
             </p>
           </li>
