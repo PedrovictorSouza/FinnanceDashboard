@@ -38,8 +38,13 @@
 }
 
 .summary-change {
-  color: #5f8f2d;
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent-success-soft);
+  color: var(--accent-success);
   font-size: var(--fs-small);
+  font-weight: 700;
   line-height: 1.1;
 }
 

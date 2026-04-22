@@ -32,7 +32,8 @@
 }
 
 .icon-btn {
-  background: var(--surface-control);
+  background: var(--surface-region-strong);
+  border: 1px solid var(--surface-line-soft);
   width: var(--panel-icon-btn-size);
   height: var(--panel-icon-btn-size);
   padding: 0;
@@ -69,7 +70,8 @@
 .slider-track {
   position: relative;
   height: 18px;
-  background: rgb(83 77 65 / 14%);
+  background: var(--surface-region-strong);
+  border-radius: 999px;
 }
 
 .slider-fill {
@@ -78,6 +80,7 @@
   top: 0;
   height: 100%;
   background: linear-gradient(90deg, #f3a712 0%, #29335c 100%);
+  border-radius: inherit;
 }
 
 .slider-scale {

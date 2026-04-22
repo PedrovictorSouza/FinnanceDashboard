@@ -1,9 +1,10 @@
 "use client";
 
-import { ParentSize } from "@visx/responsive";
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
 import { DisclosureCaret } from "../../../components/DisclosureCaret";
 import type { BalanceChartViewModel } from "../domain/balance-chart.types";
-import { BalanceChartCanvas } from "./BalanceChartCanvas";
+import { BalanceChartCanvasFallback } from "./BalanceChartCanvasFallback";
 import styles from "./BalanceChart.module.css";
 
 type BalanceChartProps = {
@@ -11,7 +12,51 @@ type BalanceChartProps = {
   locale: string;
 };
 
+const LazyBalanceChartCanvasSurface = dynamic(
+  () =>
+    import("./BalanceChartCanvasSurface").then(
+      ({ BalanceChartCanvasSurface }) => BalanceChartCanvasSurface,
+    ),
+  {
+    loading: () => <BalanceChartCanvasFallback />,
+  },
+);
+
 export function BalanceChart({ copy, locale }: BalanceChartProps) {
+  const canvasViewportRef = useRef<HTMLDivElement>(null);
+  const [shouldLoadCanvas, setShouldLoadCanvas] = useState(false);
+
+  useEffect(() => {
+    const canvasViewport = canvasViewportRef.current;
+
+    if (!canvasViewport) {
+      return;
+    }
+
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setShouldLoadCanvas(true);
+      return;
+    }
+
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) {
+          return;
+        }
+
+        setShouldLoadCanvas(true);
+        observer.disconnect();
+      },
+      {
+        rootMargin: "160px 0px",
+      },
+    );
+
+    observer.observe(canvasViewport);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <article className={`motion-enter-soft ${styles["balance-chart"]}`} data-slot="balance-chart">
       <header className={styles["balance-chart-header"]} data-slot="balance-chart-header">
@@ -72,17 +117,16 @@ export function BalanceChart({ copy, locale }: BalanceChartProps) {
         </div>
       </header>
 
-      <div className={styles["balance-canvas"]} data-slot="balance-chart-canvas">
-        <ParentSize initialSize={{ width: 640, height: 220 }}>
-          {({ width, height }) => (
-            <BalanceChartCanvas
-              width={Math.max(width, 240)}
-              height={Math.max(height, 170)}
-              copy={copy}
-              locale={locale}
-            />
-          )}
-        </ParentSize>
+      <div
+        ref={canvasViewportRef}
+        className={styles["balance-canvas"]}
+        data-slot="balance-chart-canvas"
+      >
+        {shouldLoadCanvas ? (
+          <LazyBalanceChartCanvasSurface copy={copy} locale={locale} />
+        ) : (
+          <BalanceChartCanvasFallback />
+        )}
       </div>
     </article>
   );

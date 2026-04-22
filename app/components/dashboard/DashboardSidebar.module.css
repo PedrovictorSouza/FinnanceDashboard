@@ -2,11 +2,13 @@
   position: sticky;
   top: var(--gap);
   min-height: 0;
-  background: var(--color-twilight-indigo);
+  background: linear-gradient(180deg, #29335c 0%, #202848 100%);
+  border: 1px solid rgb(255 255 255 / 8%);
+  box-shadow: 0 24px 40px rgb(16 20 36 / 26%);
   padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   overflow: hidden;
 }
 
@@ -35,7 +37,8 @@
   border-radius: var(--radius-sm);
   text-decoration: none;
   color: var(--text-inverse);
-  background: rgb(244 244 246 / 8%);
+  background: rgb(244 244 246 / 6%);
+  border: 1px solid rgb(244 244 246 / 8%);
   font-size: var(--fs-h3);
   font-weight: 600;
   line-height: 1.15;
@@ -51,6 +54,7 @@
 .sidebar-summary-active {
   color: var(--color-twilight-indigo);
   background: var(--accent-primary);
+  box-shadow: 0 10px 20px rgb(243 167 18 / 28%);
 }
 
 .sidebar-item-active .menu-icon,
@@ -88,15 +92,15 @@
 
 .sidebar-submenu {
   margin: 0;
-  padding: 6px 0 0;
+  padding: 8px 0 0;
   list-style: none;
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .sidebar-subitem {
   margin-left: 25px;
-  padding: 5px 8px;
+  padding: 6px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,6 +108,7 @@
   min-width: 0;
   width: 100%;
   border-radius: var(--radius-sm);
+  border: 1px solid transparent;
   text-decoration: none;
   color: rgb(244 244 246 / 82%);
   background: transparent;
@@ -158,11 +163,12 @@
 
 .upgrade-card {
   margin-top: auto;
-  background: rgb(244 244 246 / 8%);
+  background: linear-gradient(180deg, rgb(244 244 246 / 6%) 0%, rgb(243 167 18 / 12%) 100%);
+  border: 1px solid rgb(244 244 246 / 10%);
   padding: 10px;
   border-radius: var(--radius-sm);
   display: grid;
-  gap: 8px;
+  gap: 10px;
   flex: 0 0 auto;
   color: white;
 }
@@ -198,6 +204,8 @@
   .sidebar-summary:hover,
   .sidebar-subitem:hover {
     transform: translateX(2px);
+    background: rgb(244 244 246 / 10%);
+    border-color: rgb(244 244 246 / 10%);
     box-shadow: 0 8px 18px rgb(0 0 0 / 18%);
   }
 

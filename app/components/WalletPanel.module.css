@@ -30,7 +30,7 @@
   grid-area: copy;
   min-width: 0;
   display: grid;
-  row-gap: 3px;
+  row-gap: 4px;
   justify-items: start;
 }
 
@@ -51,13 +51,13 @@
 .wallet-add-btn {
   grid-area: action;
   min-height: var(--panel-action-h);
-  background: var(--surface-control);
+  background: var(--surface-region-strong);
   color: var(--text-primary);
   font-size: var(--fs-small);
   font-weight: 700;
   line-height: 1;
   padding: 4px 6px;
-  border: 2px solid #d8d8d8;
+  border: 1px solid var(--control-border);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -205,7 +205,10 @@
   align-content: center;
   justify-content: center;
   gap: 6px;
-  padding: 0;
+  padding: 8px 6px;
+  border-radius: 12px;
+  background: var(--surface-region);
+  border: 1px solid var(--surface-line-soft);
 }
 
 .wallet-shortcut-item-secondary {

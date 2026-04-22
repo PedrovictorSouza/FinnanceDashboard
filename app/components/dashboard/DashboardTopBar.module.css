@@ -21,6 +21,8 @@
   width: 100%;
   height: 36px;
   background: var(--surface-control-soft);
+  border: 1px solid var(--surface-line-soft);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 60%);
   color: var(--text-primary);
   border-radius: 8px;
   padding: 8px 10px;
@@ -63,7 +65,7 @@
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   min-width: 0;
 }
 
@@ -75,14 +77,24 @@
   flex-wrap: wrap;
   gap: 6px;
   min-width: 0;
+  padding: 4px;
+  border: 1px solid var(--surface-line-soft);
+  border-radius: 5px;
+  background: var(--surface-region);
+  text-align: left;
 }
 
 .top-icon-btn,
 .top-user-btn,
 .top-widget-btn {
   height: 36px;
+  border: 1px solid transparent;
   color: var(--text-primary);
   cursor: pointer;
+  transition:
+    border-color 180ms var(--motion-ease-soft),
+    background-color 180ms var(--motion-ease-soft),
+    transform 180ms var(--motion-ease-soft);
 }
 
 .top-icon-btn {
@@ -93,6 +105,8 @@
   justify-content: center;
   line-height: 0;
   overflow: visible;
+  border-color: var(--surface-line-soft);
+  background: rgb(255 255 255 / 44%);
 }
 
 .top-icon {
@@ -147,6 +161,8 @@
   padding: 0 8px;
   min-width: 0;
   max-width: min(100%, 228px);
+  border-color: var(--surface-line-soft);
+  background: rgb(255 255 255 / 42%);
 }
 
 .top-user-avatar {
@@ -179,6 +195,7 @@
   font-weight: 700;
   line-height: 1.05;
   white-space: nowrap;
+  text-align: left;
 }
 
 .top-user-email {
@@ -186,9 +203,13 @@
   line-height: 1.05;
   color: var(--text-muted);
   white-space: nowrap;
+  text-align: left;
 }
 
 .top-widget-btn {
+  background: var(--accent-primary-soft);
+  border-color: rgb(243 167 18 / 30%);
+  color: var(--accent-secondary);
   padding: 0 9px;
   display: inline-flex;
   align-items: center;
@@ -218,7 +239,7 @@
 .top-widget-icon::after {
   content: "";
   position: absolute;
-  background: var(--text-primary);
+  background: currentcolor;
 }
 
 .top-widget-icon::before {
@@ -248,7 +269,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #f7f7f7;
+  background: var(--surface-region);
+  border: 1px solid var(--surface-line-soft);
   color: var(--text-primary);
   height: 36px;
   padding: 6px 8px;
@@ -265,6 +287,9 @@
 
 .lang-btn-active {
   opacity: 1;
+  background: var(--accent-primary);
+  border-color: rgb(243 167 18 / 36%);
+  color: var(--accent-secondary);
 }
 
 [data-slot="dashboard-top-bar"] .search-form,

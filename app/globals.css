@@ -10,19 +10,28 @@
   --color-platinum: #f4f4f6;
   --color-white: #fff;
   --color-gray-light: var(--color-platinum);
-  --bg-page: var(--color-platinum);
-  --bg-page-alt: linear-gradient(180deg, rgb(41 51 92 / 6%) 0%, rgb(244 244 246 / 94%) 22%, rgb(244 244 246 / 100%) 100%);
-  --bg-panel: rgb(41 51 92 / 4%);
-  --bg-muted: rgb(83 77 65 / 8%);
-  --surface-card: var(--color-platinum);
-  --surface-control: rgb(41 51 92 / 8%);
-  --surface-control-alt: rgb(41 51 92 / 12%);
-  --surface-control-soft: rgb(41 51 92 / 8%);
+  --bg-page: #edf1f5;
+  --bg-page-alt: linear-gradient(180deg, rgb(41 51 92 / 8%) 0%, rgb(255 255 255 / 76%) 18%, rgb(237 241 245 / 100%) 100%);
+  --bg-panel: rgb(41 51 92 / 6%);
+  --bg-muted: rgb(41 51 92 / 8%);
+  --surface-card: rgb(255 255 255 / 92%);
+  --surface-card-strong: var(--color-white);
+  --surface-region: rgb(41 51 92 / 5%);
+  --surface-region-strong: rgb(41 51 92 / 10%);
+  --surface-control: rgb(41 51 92 / 10%);
+  --surface-control-alt: rgb(41 51 92 / 14%);
+  --surface-control-soft: rgb(255 255 255 / 72%);
   --surface-inverse: var(--color-twilight-indigo);
-  --surface-line: rgb(83 77 65 / 18%);
+  --surface-line: rgb(41 51 92 / 14%);
+  --surface-line-soft: rgb(41 51 92 / 8%);
   --accent-primary: var(--color-orange);
-  --accent-primary-soft: rgb(243 167 18 / 16%);
+  --accent-primary-soft: rgb(243 167 18 / 14%);
   --accent-secondary: var(--color-twilight-indigo);
+  --accent-success: #5f8f2d;
+  --accent-success-soft: rgb(95 143 45 / 16%);
+  --control-border: rgb(41 51 92 / 14%);
+  --shadow-card: 0 16px 32px rgb(41 51 92 / 8%);
+  --shadow-card-hover: 0 22px 40px rgb(41 51 92 / 13%);
   --wallet-carousel-nav-w: 24px;
   --wallet-carousel-preview-w: 72px;
   --dashboard-card-padding: 10px;
@@ -168,14 +177,14 @@ fieldset {
     box-shadow 220ms var(--motion-ease-soft),
     border-color 220ms var(--motion-ease-soft),
     background-color 220ms var(--motion-ease-soft);
-  border: 1px solid rgb(83 77 65 / 8%);
-  box-shadow: 0 12px 24px rgb(41 51 92 / 5%);
+  border: 1px solid var(--surface-line-soft);
+  box-shadow: var(--shadow-card);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .dashboard-slot > *:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 30px rgb(41 51 92 / 12%);
+    box-shadow: var(--shadow-card-hover);
     border-color: rgb(243 167 18 / 28%);
   }
 }
